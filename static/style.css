@@ -1,3 +1,8 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #d4d8d9;
+}
+
 .tab-container {
     display: flex;
     justify-content: space-between;
@@ -7,15 +12,17 @@
 
 .tab {
     list-style: none;
-
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .tab:hover {
     cursor: pointer;
+    background-color: #c2cdcf;
 }
 
 .tab.active {
-    background-color: aqua;
+    background-color: #9fa5a6;
 }
 
 .tab-content {
@@ -43,4 +50,31 @@
 
 .hidden {
     display: none;
+}
+
+#base {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 60%;
+    margin: auto;
+}
+
+#base .form-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    width: 33%;
+    margin-bottom: 7px;
+}
+
+#base .form-control label {
+    margin-right: 5px;
+    width: 30%;
+    float: left;
+}
+#base .form-control input {
+    width: 60%;
+    float: right;
 }

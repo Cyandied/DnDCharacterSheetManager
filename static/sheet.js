@@ -23,11 +23,11 @@ function run() {
 
     for(let input of inputs){
         input.addEventListener("focusout", ()=>{
-            console.log("oeujns")
             const form = input.closest("form")
-            form.submit()
+            form.requestSubmit()
         })
     }
+
 
 }
 

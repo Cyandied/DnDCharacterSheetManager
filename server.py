@@ -4,6 +4,13 @@ from os import listdir
 from os.path import isfile, join
 from classes import Character
 
+spells = {
+    "fireBall": {
+        "name": "fire ball",
+        "description": "read the damn name"
+    }
+}
+
 app = Flask(__name__, static_url_path="", static_folder="static", template_folder="templates")
 
 def getFiles():
@@ -53,7 +60,12 @@ def sheet(character):
     
     # context["data"] = data
 
-    return render_template("parts/sheet.html", sheet = sheet)
+    return render_template("parts/sheet.html", sheet = sheet, name=character)
+
+@app.route("/new-sheet", methods=["POST"])
+def new_sheet():
+    print(request.body)
+    return json.dumps("{'test': 'test'}")
 
 #Start server:
 #flask --app server run --debug

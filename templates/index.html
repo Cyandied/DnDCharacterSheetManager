@@ -3,12 +3,13 @@
 {% block content %}
 <body>
 <button type = "button" id = "new-sheet">Make new sheet</button>
-<select name="character">
+<select name="character" id = "load-character">
     <option value = "" hidden default>Select character...</option>
     {% for name in files %}
     <option value= {{name}}>{{name}}</option>
     {% endfor %}
 </select>
+<button type = "button" id = "load-sheet">Load sheet</button>
 
 <div id = "modal" class = "hidden">
     <form method="post">
@@ -18,6 +19,8 @@
     <button type="button" class = "modal-button">Exit</button>
     </form>
 </div>
+
+{{ spells.fireBall.name }}
 
 </body>
 <script src="/index.js"></script>

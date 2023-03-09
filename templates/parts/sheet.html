@@ -5,7 +5,40 @@
     This is the sheet
 </header>
 <body>
-    <form method="post">
+    <form id="sheet-form" method="post">
+        <label for="Cname">Character name</label>
+        <input type="text" value="{{sheet.Cname}}" name = "Cname">
+        <div id = "base">
+            <div class="form-control">
+                <label for="class">Class:</label>
+                <input type="text" value="{{sheet.base.class}}" placeholder="class" name = "class">
+            </div>
+
+            <div class="form-control">
+                <label for="level">Level:</label>
+                <input type="text" value="{{sheet.base.level}}" name = "level">
+            </div>
+
+            <div class="form-control">
+                <label for="background">Background:</label>
+                <input type="text" value="{{sheet.base.background}}" name = "background">
+            </div>
+
+            <div class="form-control">
+                <label for="race">Race:</label>
+                <input type="text" value="{{sheet.base.race}}" name = "race">
+            </div>
+
+            <div class="form-control">
+                <label for="Pname">Player name:</label>
+                <input type="text" value="{{sheet.base.Pname}}" name = "Pname">
+            </div>
+
+            <div class="form-control">
+                <label for="alingment">Alignment:</label>
+                <input type="text" value="{{sheet.base.alingment}}" name = "alingment">
+            </div>
+        </div>
     <ul class = "tab-container">
         <li class = "tab overview active">
             Overview
