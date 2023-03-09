@@ -1,0 +1,30 @@
+.tab-container {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+}
+
+.tab {
+    list-style: none;
+
+}
+
+.tab:hover {
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: aqua;
+}
+
+.tab-content {
+    display: none;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}

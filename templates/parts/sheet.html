@@ -1,0 +1,42 @@
+{% extends "parts/base.html" %}
+
+{% block content %}
+<header>
+    This is the sheet
+</header>
+<body>
+    <form>
+    <ul class = "tab-container">
+        <li class = "tab overview active">
+            Overview
+        </li>
+        <li class = "tab spells">
+            Spells
+        </li>
+        <li class = "tab inventory">   
+            Inventory
+        </li>
+        <li class = "tab biography">
+            Biography
+        </li>
+    </ul>
+    <div class = "tab-content active" data-tab = "overview">
+        This is the overview
+        <input type="text" name="first">
+        <input type="text" name="second">
+    </div>
+    <div class = "tab-content" data-tab = "spells">
+        This is the spells
+    </div>
+    <div class = "tab-content" data-tab = "inventory">
+        This is the inventory
+    </div>
+    <div class = "tab-content" data-tab = "biography">
+        This is the biography
+    </div>
+    </form>
+</body>
+<footer>
+    Made by: Thea Johansen
+</footer>
+{% endblock %}
