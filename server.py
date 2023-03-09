@@ -1,7 +1,8 @@
 import json
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from os import listdir
 from os.path import isfile, join
+from classes import Character
 
 app = Flask(__name__, static_url_path="", static_folder="static", template_folder="templates")
 
@@ -16,19 +17,34 @@ def getFiles():
 @app.route("/", methods=["GET", "POST"])
 def index():
     files = getFiles()
-    
+
+    if request.method == "POST":
+
+        name_of_json =  request.form["name-of-json"]
+
+        if f'{name_of_json}' not in files:
+            with open(f'characters/{name_of_json}.json', "w") as f:
+                f.write(json.dumps(Character().__dict__))
+
+        else:
+            for i in range(2,len(files)+2):
+                if f'{name_of_json}_{i}' not in files:
+                    with open(f'characters/{name_of_json}_{i}.json', "w") as f:
+                        f.write(json.dumps(Character().__dict__))
+                    name_of_json = f'{name_of_json}_{i}'
+                    break
+        
+        return redirect(url_for("sheet",character=name_of_json))
 
     return render_template("index.html", files = files)
 
-@app.route("/sheet", methods=["GET", "POST"])
-def sheet():
-    context = {}
+@app.route("/sheet/<character>", methods=["GET", "POST"])
+def sheet(character):
+    with open(f'characters/{character}.json', "r") as f:
+        sheet = json.loads(f.read())
     if request.method == "POST":
-        data = {
-            "firstName": request.form["first-name"],
-            "lastName": request.form["last-name"],
-            "age": request.form["age"]
-        }
+        pass
+
     #     with open("data.json", "w") as f:
     #         f.write(json.dumps(data))
     
@@ -37,7 +53,7 @@ def sheet():
     
     # context["data"] = data
 
-    return render_template("parts/sheet.html", context=context)
+    return render_template("parts/sheet.html", sheet = sheet)
 
 #Start server:
 #flask --app server run --debug

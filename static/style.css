@@ -28,3 +28,19 @@
 .tab-content.active {
     display: block;
 }
+
+#modal {
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid black 2px;
+    padding: 10px;
+    border-radius: 0.5rem;
+    overflow: auto;
+}
+
+.hidden {
+    display: none;
+}
