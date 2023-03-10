@@ -18,7 +18,10 @@ function run() {
     })
 
     load_character_button.addEventListener("click", e=> {
-        window.location.href = `http://localhost:5000/sheet/${load_character_name.value}`
+        if(load_character_name.value !== ""){
+            window.location.href = `http://localhost:5000/sheet/${load_character_name.value}`
+        }
+        
     })
 
 }

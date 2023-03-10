@@ -1,25 +1,32 @@
 {% extends "parts/base.html" %}
 
 {% block content %}
+
 <body>
-<button type = "button" id = "new-sheet">Make new sheet</button>
-<select name="character" id = "load-character">
-    <option value = "" hidden default>Select character...</option>
-    {% for name in files %}
-    <option value= {{name}}>{{name}}</option>
-    {% endfor %}
-</select>
-<button type = "button" id = "load-sheet">Load sheet</button>
+    <section id="index">
+        <button type="button" id="new-sheet">Make new sheet &#10002;</button>
+        <div id ="load">
+            <select name="character" id="load-character">
+                <option value="" hidden default>Select character...</option>
+                {% for name in files %}
+                <option value={{name}}>{{name}}</option>
+                {% endfor %}
+            </select>
+            <button type="button" id="load-sheet">Load sheet &#10148;</button>
+        </div>
+        <button type="button" id="new-sheet">Item encyclopedia &#9935;</button>
+        <button type="button" id="new-sheet">Spell encyclopedia &#10036;</button>
+    
+    </section>
 
-<div id = "modal" class = "hidden">
-    <form method="post">
-    <h1>Something anything</h1>
-    <input type="text" name="name-of-json">
-    <button type="submit" class = "modal-button">Make new</button>
-    <button type="button" class = "modal-button">Exit</button>
-    </form>
-</div>
-
+        <div id="modal" class="hidden">
+            <form method="post">
+                <h1>Something anything</h1>
+                <input type="text" name="name-of-json">
+                <button type="submit" class="modal-button">Make new</button>
+                <button type="button" class="modal-button">Exit</button>
+            </form>
+        </div>
 </body>
 <script src="/index.js"></script>
 {% endblock %}

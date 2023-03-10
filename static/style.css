@@ -1,6 +1,55 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #d4d8d9;
+    background-color: #E0C6BB;
+    color: #0C0907;
+    border-color: #2D1001;
+    background-image: url("BackgroundImage.png");
+    background-blend-mode: multiply;
+    background-size: 950px;
+    background-position: center 150px;
+    background-repeat: no-repeat;
+}
+
+#sheet form {
+    width: 75%;
+    background-color: rgba(234, 213, 204, 0.8);
+    margin: auto;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+#index{
+    margin: auto;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 50%;
+    background-color: rgba(234, 213, 204, 0.8);
+    border-radius: 20px;
+    margin-top: 250px;
+}
+
+#index button, #index select, #modal button, #modal input {
+    background-color: #0C0907;
+    color: #E0C6BB;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #0C0907;
+    padding: 10px 20px;
+    font-size: 25px;
+    accent-color: #EAD5CC;
+}
+
+#index button:hover,  #index select:hover, #modal button:hover {
+    background-color: #E0C6BB;
+    color: #0C0907;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    accent-color: #2D1001;
 }
 
 .tab-container {
@@ -20,11 +69,12 @@ body {
 
 .tab:hover {
     cursor: pointer;
-    background-color: #c2cdcf;
+    background-color: #EAD5CC;
 }
 
 .tab.active {
-    background-color: #9fa5a6;
+    background-color: #0C0907;
+    color: #E0C6BB;
 }
 
 .tab-content {
@@ -44,10 +94,12 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: solid black 2px;
-    padding: 10px;
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 20px;
     border-radius: 0.5rem;
     overflow: auto;
+    background-color: #E0C6BB;
 }
 
 .hidden {
@@ -122,10 +174,6 @@ label[for = "Cname"] {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-body * {
-    color: hotpink;
 }
 
 #attributes input[type = "number"] {
