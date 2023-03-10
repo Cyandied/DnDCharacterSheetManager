@@ -32,7 +32,8 @@ class Character:
             "deathSaves":{
                 "successes":0,
                 "failures":0
-            }
+            },
+            "passivePerception":0
         }
         self.ability = {
             "str":0,
@@ -52,25 +53,96 @@ class Character:
             
         }
         self.skills = {
-            "acrobatics":False,
-            "animalHandling":False,
-            "Arcana":False,
-            "athletics":False,
-            "deception":False,
-            "history":False,
-            "insigt":False,
-            "intimidation":False,
-            "invenstigation":False,
-            "medicine":False,
-            "nature":False,
-            "perception":False,
-            "performance":False,
-            "persuasion":False,
-            "religion":False,
-            "slightOfHand":False,
-            "stealth":False,
-            "survival":False,
-            "passivePerception":0
+            "acrobatics":{
+                "hasSkill":0,
+                "label":"acrobatics",
+                "modifier":0
+            },
+            "animalHandling":{
+                "hasSkill":0,
+                "label":"animal handling",
+                "modifier":0
+            },
+            "arcana":{
+                "hasSkill":0,
+                "label":"arcana",
+                "modifier":0
+            },
+            "athletics":{
+                "hasSkill":0,
+                "label":"athletics",
+                "modifier":0
+            },
+            "deception":{
+                "hasSkill":0,
+                "label":"deception",
+                "modifier":0
+            },
+            "history":{
+                "hasSkill":0,
+                "label":"history",
+                "modifier":0
+            },
+            "insight":{
+                "hasSkill":0,
+                "label":"insight",
+                "modifier":0
+            },
+            "intimidation":{
+                "hasSkill":0,
+                "label":"intimidation",
+                "modifier":0
+            },
+            "investigation":{
+                "hasSkill":0,
+                "label":"investigation",
+                "modifier":0
+            },
+            "medicine":{
+                "hasSkill":0,
+                "label":"medicine",
+                "modifier":0
+            },
+            "nature":{
+                "hasSkill":0,
+                "label":"nature",
+                "modifier":0
+            },
+            "perception":{
+                "hasSkill":0,
+                "label":"perception",
+                "modifier":0
+            },
+            "performance":{
+                "hasSkill":0,
+                "label":"performance",
+                "modifier":0
+            },
+            "persuasion":{
+                "hasSkill":0,
+                "label":"persuasion",
+                "modifier":0
+            },
+            "religion":{
+                "hasSkill":0,
+                "label":"religion",
+                "modifier":0
+            },
+            "slightOfHand":{
+                "hasSkill":0,
+                "label":"slight of hand",
+                "modifier":0
+            },
+            "stealth":{
+                "hasSkill":0,
+                "label":"stealth",
+                "modifier":0
+            },
+            "survival":{
+                "hasSkill":0,
+                "label":"survival",
+                "modifier":0
+            }
         }
         self.biography = {
             "apperance":{
@@ -166,6 +238,10 @@ class Character:
                     modifier[throw] += math.ceil(1 + 1/4 * self.base["level"])
             break
         self.ability["modifiers"] = modifier
+
+    def calcSkillProf(self):
+        for skill in self.skills:
+            self.skills[skill]["modifier"] = self.skills[skill]["hasSkill"] * math.ceil(1 + 1/4 * self.base["level"])
 
 
 

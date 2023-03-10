@@ -124,6 +124,26 @@
             </div>
 
         </div>
+
+        <div id="skills">
+            {% for name,skill in sheet.skills.items() %}
+            <div class = "skill">
+                <label for={{name}} class = "skill-label">{{skill.label}}</label>
+                <div class = "skill-level">
+                <select name={{name}}>
+                    <option value="2" {% if skill.hasSkill is eq(2) %} selected {% endif %}>Expertise</option>
+                    <option value="1" {% if skill.hasSkill is eq(1) %} selected {% endif %}>Proficient</option>
+                    <option value="0" {% if skill.hasSkill is eq(0) %} selected {% endif %}>Neutral</option>
+                </select>
+                <span>+ {{skill.modifier}}</span>
+            </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
     </div>
     <div class = "tab-content" data-tab = "spells">
         This is the spells

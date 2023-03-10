@@ -7,7 +7,7 @@
         <button type="button" id="new-sheet">Make new sheet &#10002;</button>
         <div id ="load">
             <select name="character" id="load-character">
-                <option value="" hidden default>Select character...</option>
+                <option value="" hidden selected>Select character...</option>
                 {% for name in files %}
                 <option value={{name}}>{{name}}</option>
                 {% endfor %}

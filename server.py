@@ -26,6 +26,7 @@ def index():
             with open(f'characters/{name_of_json}.json', "w") as f:
                 character = Character()
                 character.calcAttributes()
+                character.calcSkillProf()
                 f.write(json.dumps(character.__dict__))
 
         else:
@@ -34,6 +35,7 @@ def index():
                     with open(f'characters/{name_of_json}_{i}.json', "w") as f:
                         character = Character()
                         character.calcAttributes()
+                        character.calcSkillProf()
                         f.write(json.dumps(character.__dict__))
                     name_of_json = f'{name_of_json}_{i}'
                     break
