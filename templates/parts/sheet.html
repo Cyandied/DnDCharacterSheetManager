@@ -2,16 +2,17 @@
 
 {% block content %}
 <header>
-    This is the sheet
+    <h1>DnD 5e Character Sheet Manager</h1>
 </header>
 <body>
     <form id="sheet-form" method="post">
         <label for="Cname">Character name</label>
         <input type="text" value="{{sheet.Cname}}" name = "Cname">
+        
         <div id = "base">
             <div class="form-control">
                 <label for="class">Class:</label>
-                <input type="text" value="{{sheet.base.class}}" placeholder="class" name = "class">
+                <input type="text" value="{{sheet.base.class}}" name = "class">
             </div>
 
             <div class="form-control">
@@ -54,9 +55,75 @@
         </li>
     </ul>
     <div class = "tab-content active" data-tab = "overview">
-        This is the overview
-        <input type="text" name="first">
-        <input type="text" name="second">
+        <div id = "attributes">
+            <div class="attribute">
+                <label for="str" class="attribLabel">str</label>
+                <input type="number" value="{{sheet.ability.str}}" name = "str">
+                <p>{{ sheet.ability.modifiers.str }}</p>
+                
+                <div class = "saving-throw">
+                    <label for="strSave">Saving throw</label>
+                    <input type="checkbox" value = "true" name = "strSave" {% if sheet.ability.savingThrows.str %} checked {% endif %}>
+                </div>
+            </div>
+
+            <div class="attribute">
+                <label for="dex" class="attribLabel">dex</label>
+                <input type="number" value="{{sheet.ability.dex}}" name = "dex">
+                <p>{{ sheet.ability.modifiers.dex }}</p>
+                
+                <div class = "saving-throw">
+                    <label for="dexSave">Saving throw</label>
+                    <input type="checkbox" value = "true" name = "dexSave" {% if sheet.ability.savingThrows.dex %} checked {% endif %}>
+                </div>
+            </div>
+
+            <div class="attribute">
+                <label for="con" class="attribLabel">con</label>
+                <input type="number" value="{{sheet.ability.con}}" name = "con">
+                <p>{{ sheet.ability.modifiers.con }}</p>
+                
+                <div class = "saving-throw">
+                    <label for="conSave">Saving throw</label>
+                    <input type="checkbox" value = "true" name = "conSave" {% if sheet.ability.savingThrows.con %} checked {% endif %}>
+                </div>
+            </div>
+
+
+            <div class="attribute">
+                <label for="int" class="attribLabel">int</label>
+                <input type="number" value="{{sheet.ability.int}}" name = "int">
+                <p>{{ sheet.ability.modifiers.int }}</p>
+                
+                <div class = "saving-throw">
+                    <label for="intSave">Saving throw</label>
+                    <input type="checkbox" value = "true" name = "intSave" {% if sheet.ability.savingThrows.int %} checked {% endif %}>
+                </div>
+            </div>
+
+            <div class="attribute">
+                <label for="wis" class="attribLabel">wis</label>
+                <input type="number" value="{{sheet.ability.wis}}" name = "wis">
+                <p>{{ sheet.ability.modifiers.wis }}</p>
+                
+                <div class = "saving-throw">
+                    <label for="wisSave">Saving throw</label>
+                    <input type="checkbox" value = "true" name = "wisSave" {% if sheet.ability.savingThrows.wis %} checked {% endif %}>
+                </div>
+            </div>
+                
+            <div class="attribute">
+                <label for="chr" class="attribLabel">chr</label>
+                <input type="number" value="{{sheet.ability.chr}}" name = "chr">
+                <p>{{ sheet.ability.modifiers.chr }}</p>
+                
+                <div class = "saving-throw">
+                    <label for="chrSave">Saving throw</label>
+                    <input type="checkbox" value = "true" name = "chrSave" {% if sheet.ability.savingThrows.chr %} checked {% endif %}>
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class = "tab-content" data-tab = "spells">
         This is the spells

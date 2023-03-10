@@ -1,11 +1,10 @@
 import json
-import classes
 import base64
 import requests
 import xmltodict
 import random
 
-def save(character:classes.Character())->None:
+def save(character:object)->None:
     dictCharacter = character.__dict__
     with open(f'characters/{character.Cname}.json', "w") as outfile:
         json.dump(dictCharacter, outfile)

@@ -1,3 +1,6 @@
+from func import d
+import math
+
 class Character:
     def __init__(self):
         self.Cname = ""
@@ -13,7 +16,10 @@ class Character:
                 "min":0,
                 "max":0,
                 "temporary":0,
-                "hitDice":0
+                "hitDice": {
+                    "sides":0,
+                    "num":0
+                }
             },
             "speed":{
                 "running":0,
@@ -24,7 +30,7 @@ class Character:
             "initiative":0,
             "ac":0,
             "deathSaves":{
-                "sucesses":0,
+                "successes":0,
                 "failures":0
             }
         }
@@ -42,7 +48,8 @@ class Character:
                 "int":False,
                 "wis":False,
                 "chr":False
-            }
+            },
+            
         }
         self.skills = {
             "acrobatics":False,
@@ -136,3 +143,30 @@ class Character:
                 "bonus":0
             }
         }
+    def addHitDie(self):
+        hitDice = self.base["hp"]["hitDice"]["sides"]
+        if self.base["level"] == 1:
+            hpToAdd = hitDice + self.ability["modifiers"]["con"]
+            self.base["hp"]["max"] += hpToAdd
+    
+        elif self.base["hp"]["hitDice"]["num"] < self.base["level"]:
+            self.base["hp"]["hitDice"]["num"] += 1
+            hpToAdd = d(1,hitDice) + self.ability["modifiers"]["con"]
+            if hpToAdd > 0:
+                self.base["hp"]["max"] += hpToAdd
+
+    def calcAttributes(self):
+        modifier = {}
+        for attribute in self.ability:
+            if attribute != "savingThrows":
+                modifier[attribute] = math.floor((self.ability[attribute] - 10)/2)
+                continue
+            for throw in self.ability[attribute]:
+                if self.ability[attribute][throw]:
+                    modifier[throw] += math.ceil(1 + 1/4 * self.base["level"])
+            break
+        self.ability["modifiers"] = modifier
+
+
+
+

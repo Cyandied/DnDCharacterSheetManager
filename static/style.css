@@ -14,6 +14,8 @@ body {
     list-style: none;
     padding: 5px 10px;
     border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 .tab:hover {
@@ -77,4 +79,67 @@ body {
 #base .form-control input {
     width: 60%;
     float: right;
+}
+
+header h1 {
+    margin: 40px 50px 50px;
+}
+
+label {
+    font-weight: 600;
+}
+
+label[for = "Cname"] {
+    margin-left: 20%;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+.saving-throw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.saving-throw label {
+    font-weight: 100;
+    font-size: 13px;
+}
+
+#attributes {
+    display: flex;
+    /* flex-direction: column; */
+    width: 17%;
+    flex-wrap: wrap;
+    height: 420px;
+    align-items: center;
+}
+
+#attributes > .attribute {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body * {
+    color: hotpink;
+}
+
+#attributes input[type = "number"] {
+    width: 30px;
+    height: 30px;
+    -moz-appearance: textfield;
+    text-align: center;
+    font-size: 20px;
+}
+
+.attribLabel {
+    font-size: 20px;
+}
+
+#attributes p {
+    margin: 2px 0px 5px;
 }

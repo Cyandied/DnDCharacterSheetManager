@@ -4,13 +4,6 @@ from os import listdir
 from os.path import isfile, join
 from classes import Character
 
-spells = {
-    "fireBall": {
-        "name": "fire ball",
-        "description": "read the damn name"
-    }
-}
-
 app = Flask(__name__, static_url_path="", static_folder="static", template_folder="templates")
 
 def getFiles():
@@ -31,13 +24,17 @@ def index():
 
         if f'{name_of_json}' not in files:
             with open(f'characters/{name_of_json}.json', "w") as f:
-                f.write(json.dumps(Character().__dict__))
+                character = Character()
+                character.calcAttributes()
+                f.write(json.dumps(character.__dict__))
 
         else:
             for i in range(2,len(files)+2):
                 if f'{name_of_json}_{i}' not in files:
                     with open(f'characters/{name_of_json}_{i}.json', "w") as f:
-                        f.write(json.dumps(Character().__dict__))
+                        character = Character()
+                        character.calcAttributes()
+                        f.write(json.dumps(character.__dict__))
                     name_of_json = f'{name_of_json}_{i}'
                     break
         
@@ -50,6 +47,8 @@ def sheet(character):
     with open(f'characters/{character}.json', "r") as f:
         sheet = json.loads(f.read())
     if request.method == "POST":
+
+
         pass
 
     #     with open("data.json", "w") as f:
