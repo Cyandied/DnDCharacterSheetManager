@@ -1,9 +1,15 @@
 from func import d
 import math
 
+class Feature:
+    def __init__(self, title, desc) -> None:
+        self.title = title
+        self.desc = desc
+
+
 class Character:
-    def __init__(self):
-        self.Cname = ""
+    def __init__(self,existingChr = None):
+        self.Cname = "" if existingChr == None else existingChr["Cname"]
         self.base = {
             "class":"",
             "level":0,
@@ -34,7 +40,7 @@ class Character:
                 "failures":0
             },
             "passivePerception":0
-        }
+        } if existingChr == None else existingChr["base"]
         self.ability = {
             "str":0,
             "dex":0,
@@ -51,7 +57,7 @@ class Character:
                 "chr":False
             },
             
-        }
+        } if existingChr == None else existingChr["ability"]
         self.skills = {
             "acrobatics":{
                 "hasSkill":0,
@@ -143,7 +149,7 @@ class Character:
                 "label":"survival",
                 "modifier":0
             }
-        }
+        } if existingChr == None else existingChr["skills"]
         self.biography = {
             "apperance":{
                 "age":0,
@@ -169,7 +175,7 @@ class Character:
                 "organizations":[],
                 "other":[]
             }
-        }
+        } if existingChr == None else existingChr["biography"]
         self.features = {
             "profeciencies":[],
             "languages":[],
@@ -180,7 +186,7 @@ class Character:
             "resistances":[],
             "immunities":[],
             "vunerabilities":[]
-        }
+        } if existingChr == None else existingChr["features"]
         self.inventory = {
             "money":{
                 "cp":0,
@@ -196,7 +202,7 @@ class Character:
             "important":[],
             "misc":[],
             "treasure":[]
-        }
+        } if existingChr == None else existingChr["inventory"]
         self.spells = {
             "cantrips":[],
             "level1":[],
@@ -214,28 +220,36 @@ class Character:
                 "saveDC":0,
                 "bonus":0
             }
-        }
+        } if existingChr == None else existingChr["spells"]
+
+
     def addHitDie(self):
         hitDice = self.base["hp"]["hitDice"]["sides"]
-        if self.base["level"] == 1:
-            hpToAdd = hitDice + self.ability["modifiers"]["con"]
-            self.base["hp"]["max"] += hpToAdd
-    
-        elif self.base["hp"]["hitDice"]["num"] < self.base["level"]:
-            self.base["hp"]["hitDice"]["num"] += 1
-            hpToAdd = d(1,hitDice) + self.ability["modifiers"]["con"]
-            if hpToAdd > 0:
-                self.base["hp"]["max"] += hpToAdd
+        if self.base["hp"]["hitDice"]["num"] < self.base["level"]:
+            if self.base["hp"]["hitDice"]["num"] < 1:
+                hpToAdd = hitDice + self.ability["modifiers"]["con"]["flat"]
+                if hpToAdd > 0:
+                    self.base["hp"]["max"] += hpToAdd
+                else: self.base["hp"]["max"] += hitDice
+                self.base["hp"]["hitDice"]["num"] += 1
+
+            else:
+                self.base["hp"]["hitDice"]["num"] += 1
+                hpToAdd = d(1,hitDice) + self.ability["modifiers"]["con"]["flat"]
+                if hpToAdd > 0:
+                    self.base["hp"]["max"] += hpToAdd
 
     def calcAttributes(self):
         modifier = {}
         for attribute in self.ability:
             if attribute != "savingThrows":
-                modifier[attribute] = math.floor((self.ability[attribute] - 10)/2)
+                modifier[attribute] = {}
+                modifier[attribute]["flat"] = math.floor((self.ability[attribute] - 10)/2)
+                modifier[attribute]["sthrow"] = math.floor((self.ability[attribute] - 10)/2)
                 continue
             for throw in self.ability[attribute]:
                 if self.ability[attribute][throw]:
-                    modifier[throw] += math.ceil(1 + 1/4 * self.base["level"])
+                    modifier[throw]["sthrow"] += math.ceil(1 + 1/4 * self.base["level"])
             break
         self.ability["modifiers"] = modifier
 
@@ -244,5 +258,6 @@ class Character:
             self.skills[skill]["modifier"] = self.skills[skill]["hasSkill"] * math.ceil(1 + 1/4 * self.base["level"])
 
 
+person = Character()
 
-
+person.calcAttributes()

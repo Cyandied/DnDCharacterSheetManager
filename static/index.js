@@ -1,5 +1,5 @@
 function run() {
-    const modal = document.querySelector("#modal")
+    const modal = document.querySelector(".modal")
     const new_sheet = document.querySelector("#new-sheet")
     const modal_buttons = modal.querySelectorAll(".modal-button")
     const load_character_button = document.querySelector("#load-sheet")
