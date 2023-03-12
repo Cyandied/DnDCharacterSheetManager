@@ -28,7 +28,7 @@ class Character:
                 }
             },
             "speed":{
-                "running":0,
+                "land":0,
                 "flying":0,
                 "swimming":0,
                 "climbing":0
@@ -151,7 +151,7 @@ class Character:
             }
         } if existingChr == None else existingChr["skills"]
         self.biography = {
-            "apperance":{
+            "appearance":{
                 "age":0,
                 "height":0,
                 "weight":0,
@@ -163,6 +163,7 @@ class Character:
             },
             "portrait":"",
             "backstory":"",
+            "notes":"",
             "personality":{
                 "personalityTraits":"",
                 "ideals":"",
@@ -170,10 +171,10 @@ class Character:
                 "flaws":""
             },
             "people":{
-                "allies":[],
-                "enemies":[],
-                "organizations":[],
-                "other":[]
+                "allies":"",
+                "enemies":"",
+                "organizations":"",
+                "other":""
             }
         } if existingChr == None else existingChr["biography"]
         self.features = {
@@ -182,10 +183,11 @@ class Character:
             "classFeatures":[],
             "raceFeatures":[],
             "feats":[],
-            "other":[],
+            "otherFeats":[],
+            "otherProfs":[],
             "resistances":[],
             "immunities":[],
-            "vunerabilities":[]
+            "vulnerabilities":[]
         } if existingChr == None else existingChr["features"]
         self.inventory = {
             "money":{
@@ -204,6 +206,7 @@ class Character:
             "treasure":[]
         } if existingChr == None else existingChr["inventory"]
         self.spells = {
+            "level":{
             "cantrips":[],
             "level1":[],
             "level2":[],
@@ -213,7 +216,8 @@ class Character:
             "level6":[],
             "level7":[],
             "level8":[],
-            "level9":[],
+            "level9":[]
+            },
             "spellBase":{
                 "class":"",
                 "ability":"",

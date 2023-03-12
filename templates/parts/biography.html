@@ -1,0 +1,52 @@
+<div id="apperance" class="bioPart">
+    <label>apperance</label>
+    <label for ="upload-image">
+        <div class="image">
+            <img src="/profilePics/{{sheet.biography.portrait}}">
+        </div>
+    </label>
+    <input type="file" class = "hidden" id = "upload-image" name = "profile-picture" accept="image/png, image/jpeg, image/webp">
+    <div id="apperance-inputfields">
+        {% for name in sheet.biography.appearance %}
+        <div>
+            <label for={{name}}>{{name}}:</label>
+            <input type="text" name={{name}} value={{sheet.biography.appearance[name]}}>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<div id="personality" class="bioPart loose">
+    <label>personality</label>
+    {% for name in sheet.biography.personality %}
+    <div>
+        <label for={{name}}>{{name}}:</label>
+        <textarea name={{name}}>{{sheet.biography.personality[name]}}</textarea>
+    </div>
+    {% endfor %}
+</div>
+
+<div id="people" class="bioPart loose">
+    <label>connections</label>
+    {% for name in sheet.biography.people %}
+    <div>
+        <label for={{name}}>{{name}}:</label>
+        <textarea name={{name}}>{{sheet.biography.people[name]}}</textarea>
+    </div>
+    {% endfor %}
+
+
+</div>
+
+<div id="backstory" class="bioPart loose">
+    <label>backstory</label>
+    <div>
+        <label>backstory</label>
+        <textarea name="backstory">{{sheet.biography.backstory}}</textarea>
+    </div>
+    <div>
+        <label>notes</label>
+        <textarea name="notes">{{sheet.biography.notes}}</textarea>
+    </div>
+</div>

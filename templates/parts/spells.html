@@ -1,0 +1,60 @@
+<div id="spell-base">
+    {% for thing in sheet.spells.spellBase %}
+    <label>{{thing}}</label>
+    <input type="text" name={{thing}} value={{sheet.spells.spellBase[thing]}}>
+    {% endfor %}
+</div>
+
+<div id="spell-list">
+    <ul class="faqs spell-faqs">
+        {% for spellLevel in sheet.spells.level %}
+        <li class="faq listItem">
+            <div class="faq-inner-title"><label>{{spellLevel}} </label>
+                <button type="button" id={{spellLevel}} class="showAdd-spell">&#10010;</button>
+            </div>
+            {% for spell in sheet.spells.level[spellLevel] %}
+            <div name={{spell.name}}>
+                <p class="faq-title" data-name={{spell.name}} data-level = {{spellLevel}}>{{spell.name}}<span class="remove-spell">&times;</span></p>
+                <div class="faq-content spell-desc">
+                    <div class="spell-info">
+                        <div>
+                            <label>level:</label>
+                            <span>{{spell.level}}</span>
+                        </div>
+                        <div>
+                            <label>classes:</label>
+                            <span>{{spell.classes}}</span>
+                        </div>
+                        <div>
+                            <label>time:</label>
+                            <span>{{spell.time}}</span>
+                        </div>
+                        <div>
+                            <label>range:</label>
+                            <span>{{spell.range}}</span>
+                        </div>
+                        <div>
+                            <label>duration:</label>
+                            <span>{{spell.duration}}</span>
+                        </div>
+                        <div>
+                            <label>components:</label>
+                            <span>{{spell.components}}</span>
+                        </div>
+                        <div>
+                            <label>ritual:</label>
+                            <span>{{spell.ritual}}</span>
+                        </div>
+                        <div>
+                            <label>school:</label>
+                            <span>{{spell.school}}</span>
+                        </div>
+                    </div>
+                    <span class="spell-desc">{{spell.text}}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>

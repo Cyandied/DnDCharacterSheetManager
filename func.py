@@ -20,8 +20,13 @@ def addTo(url:str, type:str, toKeep:str)->None:
     else:
         print('Content was not found.')
     contentAsDict = xmltodict.parse(content)
-    with open(f'itemsSpellsFeatures/{type}.json', "a") as outfile:
-        json.dump(contentAsDict["compendium"][toKeep], outfile)
+    with open(f'itemsSpellsFeatures/{type}.json', "r") as outfile:
+        object = json.loads(outfile.read())
+
+    object.append(contentAsDict["compendium"][toKeep])
+
+    with open(f'itemsSpellsFeatures/{type}.json', "w") as outfile:
+        outfile.write(json.dumps(object))
 
 
 def d(num:int, faces:int)-> int:
@@ -29,3 +34,17 @@ def d(num:int, faces:int)-> int:
     for i in range(num):
         res.append(random.randint(1,faces))
     return sum(res)
+
+
+get = "XanatharsGuideToEverything/items-xge.xml"
+
+user = "kinkofer"
+repo_name = "FightClub5eXML"
+path_to_file = f'Sources/{get}'
+url = f'https://api.github.com/repos/{user}/{repo_name}/contents/{path_to_file}'
+type = ""
+if get.split("/")[-1][0] == "i":
+    type = "item"
+else: type = "spell"
+
+# addTo(url, f'{type}s', type)

@@ -6,7 +6,7 @@
 </header>
 
 <body id="sheet">
-    <form id="sheet-form" method="post">
+    <form id="sheet-form" method="post" enctype="multipart/form-data">
         <label for="Cname">Character name:</label>
         <input type="text" value="{{sheet.Cname}}" name="Cname">
 
@@ -55,239 +55,17 @@
                 Biography
             </li>
         </ul>
-        <div class="tab-content active" data-tab="overview">
-            <div id="attributes">
-                <div class="attribute">
-                    <label for="str" class="attribLabel">str</label>
-                    <input type="number" value="{{sheet.ability.str}}" name="str">
-                    <p>{{ sheet.ability.modifiers.str.flat }} {% if sheet.ability.savingThrows.str %} <span
-                            style="color: #973f16;">{{ sheet.ability.modifiers.str.sthrow }}</span> {% endif %}</p>
-
-                    <div class="saving-throw">
-                        <label for="strSave">Saving throw</label>
-                        <input type="checkbox" value="true" name="strSave" {% if sheet.ability.savingThrows.str %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-                <div class="attribute">
-                    <label for="dex" class="attribLabel">dex</label>
-                    <input type="number" value="{{sheet.ability.dex}}" name="dex">
-                    <p>{{ sheet.ability.modifiers.dex.flat }} {% if sheet.ability.savingThrows.dex %} <span
-                            style="color: #973f16;">{{ sheet.ability.modifiers.dex.sthrow }}</span> {% endif %}</p>
-
-                    <div class="saving-throw">
-                        <label for="dexSave">Saving throw</label>
-                        <input type="checkbox" value="true" name="dexSave" {% if sheet.ability.savingThrows.dex %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-                <div class="attribute">
-                    <label for="con" class="attribLabel">con</label>
-                    <input type="number" value="{{sheet.ability.con}}" name="con">
-                    <p>{{ sheet.ability.modifiers.con.flat }} {% if sheet.ability.savingThrows.con %} <span
-                            style="color: #973f16;">{{ sheet.ability.modifiers.con.sthrow }}</span> {% endif %}</p>
-
-                    <div class="saving-throw">
-                        <label for="conSave">Saving throw</label>
-                        <input type="checkbox" value="true" name="conSave" {% if sheet.ability.savingThrows.con %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-
-                <div class="attribute">
-                    <label for="int" class="attribLabel">int</label>
-                    <input type="number" value="{{sheet.ability.int}}" name="int">
-                    <p>{{ sheet.ability.modifiers.int.flat }} {% if sheet.ability.savingThrows.int %} <span
-                            style="color: #973f16;">{{ sheet.ability.modifiers.int.sthrow }}</span> {% endif %}</p>
-
-                    <div class="saving-throw">
-                        <label for="intSave">Saving throw</label>
-                        <input type="checkbox" value="true" name="intSave" {% if sheet.ability.savingThrows.int %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-                <div class="attribute">
-                    <label for="wis" class="attribLabel">wis</label>
-                    <input type="number" value="{{sheet.ability.wis}}" name="wis">
-                    <p>{{ sheet.ability.modifiers.wis.flat }} {% if sheet.ability.savingThrows.wis %} <span
-                            style="color: #973f16;">{{ sheet.ability.modifiers.wis.sthrow }}</span> {% endif %}</p>
-
-                    <div class="saving-throw">
-                        <label for="wisSave">Saving throw</label>
-                        <input type="checkbox" value="true" name="wisSave" {% if sheet.ability.savingThrows.wis %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-                <div class="attribute">
-                    <label for="chr" class="attribLabel">chr</label>
-                    <input type="number" value="{{sheet.ability.chr}}" name="chr">
-                    <p>{{ sheet.ability.modifiers.chr.flat }} {% if sheet.ability.savingThrows.chr %} <span
-                            style="color: #973f16;">{{ sheet.ability.modifiers.chr.sthrow }}</span> {% endif %}</p>
-
-                    <div class="saving-throw">
-                        <label for="chrSave">Saving throw</label>
-                        <input type="checkbox" value="true" name="chrSave" {% if sheet.ability.savingThrows.chr %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="skills">
-                {% for name,skill in sheet.skills.items() %}
-                <div class="skill">
-                    <label for={{name}} class="skill-label">{{skill.label}}</label>
-                    <div class="skill-level">
-                        <select name={{name}}>
-                            <option value="2" {% if skill.hasSkill is eq(2) %} selected {% endif %}>Expertise</option>
-                            <option value="1" {% if skill.hasSkill is eq(1) %} selected {% endif %}>Proficient</option>
-                            <option value="0" {% if skill.hasSkill is eq(0) %} selected {% endif %}>Neutral</option>
-                        </select>
-                        <span>+ {{skill.modifier}}</span>
-                    </div>
-                </div>
-
-                {% endfor %}
-
-            </div>
-
-            <div id="combat-things">
-                <div id="ac-other">
-                    <div>
-                        <label for="ac">ac</label>
-                        <input type="number" name="ac" value={{sheet.base.ac}}>
-                    </div>
-
-                    <div>
-                        <label for="init">initiative</label>
-                        <input readonly type="number" name="init" value={{sheet.base.initiative}}>
-                    </div>
-
-
-                </div>
-
-                <label for="passive-per">passive perception</label>
-                <input readonly type="number" name="passive-per" value={{sheet.base.passivePerception}}>
-
-
-                <div id="hp-stuff">
-                    <label for="hp">hp</label>
-                    <div name="hp">
-                        <input type="number" value={{sheet.base.hp.value}} name="hpvalue"><span> / </span><input
-                            type="number" value={{sheet.base.hp.max}} name="hpmax">
-                    </div>
-                    <label for="hitdie">hit dice faces</label><input type="number" name="hitdie"
-                        value={{sheet.base.hp.hitDice.sides}}>
-                    <button id="roll-hit-die">roll hit dice</button>
-                    <input name="roll" value="false" type="text" id="roll" style="display: none;">
-                    <label for="temp">temporary hp</label>
-                    <input name="temp" type="number" value={{sheet.base.hp.temporary}}>
-                </div>
-                <hr>
-                <label for="saves">death saves</label>
-                <div id="saves" name="saves">
-                    <label for="fail">failures</label>
-                    <div class="saves-boxes" name="fail">
-                        <input type="checkbox" value="1" name="fail1" {% if sheet.base.deathSaves.failures is ge(1) %}
-                            checked {% endif %}>
-                        <input type="checkbox" value="1" name="fail2" {% if sheet.base.deathSaves.failures is ge(2) %}
-                            checked {% endif %}>
-                        <input type="checkbox" value="1" name="fail3" {% if sheet.base.deathSaves.failures is ge(3) %}
-                            checked {% endif %}>
-                    </div>
-                    <label for="succ">successes</label>
-                    <div class="saves-boxes" name="succ">
-                        <input type="checkbox" value="1" name="succ1" {% if sheet.base.deathSaves.successes is ge(1) %}
-                            checked {% endif %}>
-                        <input type="checkbox" value="1" name="succ2" {% if sheet.base.deathSaves.successes is ge(2) %}
-                            checked {% endif %}>
-                        <input type="checkbox" value="1" name="succ3" {% if sheet.base.deathSaves.successes is ge(3) %}
-                            checked {% endif %}>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="features">
-
-                <label for="feature-faqs">features</label>
-                <ul class="faqs" name = "feature-faqs">
-                    <li class="faq">
-                        <div class = "faq-inner-title"><label for="classFeats">class features</label><button type="button" id = "classAdd">&#10010;</button></div>
-                        
-                        <input type="text" name = "classFeatTitle" class = "addFeat classAdd hidden" placeholder="feature title">
-                        <textarea name="classFeatDesc" rows="2" class = "addFeat classAdd hidden" placeholder="feature description"></textarea>
-                        <button class = "addFeat classAdd hidden">add</button>
-                        
-                        <div name = "classFeats">
-                        <p class="faq-title">Title</p>
-                        <div class="faq-content">
-                            So much content wow
-                        </div>
-                    </div>
-                    </li>
-                    <li class="faq">
-                        <div class = "faq-inner-title"><label for="raceFeats">race features</label><button type="button" id = "raceAdd">&#10010;</button></div>
-                        
-                        <input type="text" name = "raceFeatTitle" class = "addFeat raceAdd hidden" placeholder="feature title">
-                        <textarea name="raceFeatDesc" rows="2" class = "addFeat raceAdd hidden" placeholder="feature description"></textarea>
-                        <button class = "addFeat raceAdd hidden">add</button>
-                        
-                        <div name = "raceFeats">
-                        <p class="faq-title">Title</p>
-                        <div class="faq-content">
-                            So much content wow
-                        </div>
-                    </li>
-                    <li class="faq">
-                        <div class = "faq-inner-title"><label for="feats"> feats</label><button type="button" id = "featsAdd">&#10010;</button></div>
-                        
-                        <input type="text" name = "featsTitle" class = "addFeat featsAdd hidden" placeholder="feature title">
-                        <textarea name="featsDesc" rows="2" class = "addFeat featsAdd hidden" placeholder="feature description"></textarea>
-                        <button class = "addFeat featsAdd hidden">add</button>
-                        
-                        <div name = "feats">
-                        <p class="faq-title">Title</p>
-                        <div class="faq-content">
-                            So much content wow
-                        </div>
-                    </li>
-                    <li class="faq">
-                        <div class = "faq-inner-title"><label for="otherFeats">other features</label>
-                            <button type="button" id = "otherAdd">&#10010;</button>
-                        </div>
-                        
-                        <input type="text" name = "otherFeatTitle" class = "addFeat otherAdd hidden" placeholder="feature title">
-                        <textarea name="otherFeatDesc" rows="2" class = "addFeat otherAdd hidden" placeholder="feature description"></textarea>
-                        <button class = "addFeat otherAdd hidden">add</button>
-                        
-                        <div name = "otherFeats">
-                        <p class="faq-title">Title</p>
-                        <div class="faq-content">
-                            So much content wow
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-
-
+        <div class="tab-content" data-tab="overview">
+            {% include "parts/overview.html" %}
         </div>
-
-
-        <div class="tab-content" data-tab="spells">
-            This is the spells
+        <div class="tab-content active" data-tab="spells">
+            {% include "parts/spells.html" %}
         </div>
         <div class="tab-content" data-tab="inventory">
-            This is the inventory
+            {% include "parts/inventory.html" %}
         </div>
         <div class="tab-content" data-tab="biography">
-            This is the biography
+            {% include "parts/biography.html" %}
         </div>
     </form>
 </body>

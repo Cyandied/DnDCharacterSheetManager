@@ -7,13 +7,42 @@ function run() {
     const roll = document.querySelector("#roll")
     const faq_contents = document.querySelectorAll(".faq-content")
     const faqs_titles = document.querySelectorAll(".faq-title")
-    const add_buttons = document.querySelector(".faqs").querySelectorAll("button")
+    const add_buttons = document.querySelectorAll(".showAdd")
+    const remove_buttons = document.querySelectorAll(".remove")
+    const form = document.querySelector("#sheet-form")
+    const text_area = document.querySelectorAll("textarea")
+
+    
+    for(let text of text_area){
+        if(!text.classList.contains("addFeat") ){
+            text.addEventListener("focusout", submit)
+        }
+
+    }
+
+
+    for(let remove_button of remove_buttons){
+        remove_button.addEventListener("click", e=>{
+            const p = e.target.closest("p")
+            const name = p.closest("div").getAttribute("name")
+
+            document.querySelector("input[name=delete-feature-title]").value = p.dataset.name
+            document.querySelector("input[name=delete-feature-destination]").value = name
+            submit()
+
+        })
+    }
 
     for(let button of add_buttons){
         button.addEventListener("click", e=> {
-            const current_faq = button.closest(".faq")
+            const current_faq = button.closest(".listItem")
             for(let stuff of current_faq.querySelectorAll(`.${button.id}`)){
-                stuff.classList.remove("hidden")
+                if (stuff.classList.contains("hidden")){
+                    stuff.classList.remove("hidden")}
+                else{
+                    stuff.classList.add("hidden")
+                }
+                 
             }
         })
     }
@@ -55,11 +84,9 @@ function run() {
     rollHdie.addEventListener("click", ()=> {
         roll.value = "true"
         submit()
-        roll.value = "false"
     })
 
     function submit(){
-        const form = this.closest("form")
         form.requestSubmit()
     }
 
