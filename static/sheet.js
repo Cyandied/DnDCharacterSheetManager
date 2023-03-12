@@ -11,46 +11,62 @@ function run() {
     const remove_buttons = document.querySelectorAll(".remove")
     const form = document.querySelector("#sheet-form")
     const text_area = document.querySelectorAll("textarea")
+    const modal_spells = document.querySelector(".modal.spell")
+    const add_spell = document.querySelectorAll(".showAdd-spell")
 
-    
-    for(let text of text_area){
-        if(!text.classList.contains("addFeat") ){
+
+    for (let button of add_spell) {
+        button.addEventListener("click", e => {
+            if (modal_spells.classList.contains("hidden")) {
+                modal_spells.classList.remove("hidden")
+            }
+            else{
+            modal_spells.classList.add("hidden")}
+        })
+    }
+
+
+    for (let text of text_area) {
+        if (!text.classList.contains("addFeat")) {
             text.addEventListener("focusout", submit)
         }
 
     }
 
+    function removeItems(e, inputName) {
+        const p = e.target.closest("p")
+        const name = p.closest("div").getAttribute("name")
 
-    for(let remove_button of remove_buttons){
-        remove_button.addEventListener("click", e=>{
-            const p = e.target.closest("p")
-            const name = p.closest("div").getAttribute("name")
+        document.querySelector(`input[name=delete-${inputName}-title]`).value = p.dataset.name
+        document.querySelector(`input[name=delete-${inputName}-destination]`).value = name
+        submit()
+    }
 
-            document.querySelector("input[name=delete-feature-title]").value = p.dataset.name
-            document.querySelector("input[name=delete-feature-destination]").value = name
-            submit()
-
+    for (let remove_button of remove_buttons) {
+        remove_button.addEventListener("click", e => {
+            removeItems(e, remove_button.classList[1])
         })
     }
 
-    for(let button of add_buttons){
-        button.addEventListener("click", e=> {
+    for (let button of add_buttons) {
+        button.addEventListener("click", e => {
             const current_faq = button.closest(".listItem")
-            for(let stuff of current_faq.querySelectorAll(`.${button.id}`)){
-                if (stuff.classList.contains("hidden")){
-                    stuff.classList.remove("hidden")}
-                else{
+            for (let stuff of current_faq.querySelectorAll(`.${button.id}`)) {
+                if (stuff.classList.contains("hidden")) {
+                    stuff.classList.remove("hidden")
+                }
+                else {
                     stuff.classList.add("hidden")
                 }
-                 
+
             }
         })
     }
-    
-    
-    for(let [index, title] of faqs_titles.entries()) {
+
+
+    for (let [index, title] of faqs_titles.entries()) {
         title.addEventListener("click", e => {
-            if (title.classList[1] === "active"){
+            if (title.classList[1] === "active") {
                 title.classList.remove("active")
                 faq_contents[index].classList.remove("active")
             }
@@ -60,9 +76,9 @@ function run() {
             }
         })
     }
-    
-    
-    
+
+
+
     for (let tab of tabs) {
         tab.addEventListener("click", e => {
 
@@ -81,38 +97,38 @@ function run() {
         })
     }
 
-    rollHdie.addEventListener("click", ()=> {
+    rollHdie.addEventListener("click", () => {
         roll.value = "true"
         submit()
     })
 
-    function submit(){
+    function submit() {
         form.requestSubmit()
     }
 
-    for(let input of inputs){
-        if(input.type === "checkbox"){
+    for (let input of inputs) {
+        if (input.type === "checkbox") {
             input.addEventListener("change", submit)
             continue
         }
-        if(!input.classList.contains("addFeat") ){
+        if (!input.classList.contains("addFeat")) {
             input.addEventListener("focusout", submit)
         }
 
     }
 
-    for(let selector of selectors){
+    for (let selector of selectors) {
         selector.addEventListener("change", submit)
     }
 
 
 }
 
-if(document.readyState !== "loading"){
+if (document.readyState !== "loading") {
     run()
 }
-else{
-    document.addEventListener("DOMContentLoaded",()=>{
+else {
+    document.addEventListener("DOMContentLoaded", () => {
         run()
     })
 }

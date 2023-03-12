@@ -157,8 +157,8 @@
 </div>
 
 <div id="features">
-    <input type="text" name="delete-feature-title" class="hidden">
-    <input type="text" name="delete-feature-destination" class="hidden">
+    <input type="text" name="delete-features-title" class="hidden">
+    <input type="text" name="delete-features-destination" class="hidden">
 
     <label>speed</label>
     <div id="speed">
@@ -195,8 +195,8 @@
 
             {% for feat in sheet.features.classFeatures %}
             <div name="classFeatures">
-                <p class="faq-title" data-name={{feat.title}}>{{feat.title}}<span
-                        class="remove">&times;</span></p>
+                <p class="faq-title" data-name="{{feat.title}}">{{feat.title}}<span
+                        class="remove features">&times;</span></p>
                 <div class="faq-content">
                     {{feat.desc}}
                 </div>
@@ -216,8 +216,8 @@
 
             {% for feat in sheet.features.raceFeatures %}
             <div name="raceFeatures">
-                <p class="faq-title" data-name={{feat.title}}>{{feat.title}}<span
-                        class="remove">&times;</span></p>
+                <p class="faq-title" data-name="{{feat.title}}">{{feat.title}}<span
+                        class="remove features">&times;</span></p>
                 <div class="faq-content">
                     {{feat.desc}}
                 </div>
@@ -237,8 +237,8 @@
 
             {% for feat in sheet.features.feats %}
             <div name="feats">
-                <p class="faq-title" data-name={{feat.title}}>{{feat.title}}<span
-                        class="remove">&times;</span></p>
+                <p class="faq-title" data-name="{{feat.title}}">{{feat.title}}<span
+                        class="remove features">&times;</span></p>
                 <div class="faq-content">
                     {{feat.desc}}
                 </div>
@@ -260,8 +260,8 @@
 
             {% for feat in sheet.features.otherFeats %}
             <div name="otherFeats">
-                <p class="faq-title" data-name={{feat.title}}>{{feat.title}} <span
-                        class="remove">&times;</span></p>
+                <p class="faq-title" data-name="{{feat.title}}">{{feat.title}} <span
+                        class="remove features">&times;</span></p>
                 <div class="faq-content">
                     {{feat.desc}}
                 </div>
@@ -281,7 +281,7 @@
                 placeholder="press enter to finish">
             <div name="profeciencies" class="prof-list-wrap">
                 {% for prof in sheet.features.profeciencies %}
-                <p class="prof-content" data-name={{prof}}>{{prof}} <span class="remove">&times;</span></p>
+                <p class="prof-content" data-name={{prof}}>{{prof}} <span class="remove features">&times;</span></p>
                 {% endfor %}
             </div>
 
@@ -295,7 +295,7 @@
                 placeholder="press enter to finish">
             <div name="languages" class="prof-list-wrap">
                 {% for lang in sheet.features.languages %}
-                <p class="prof-content" data-name={{lang}}>{{lang}}<span class="remove">&times;</span></p>
+                <p class="prof-content" data-name="{{lang}}">{{lang}}<span class="remove features">&times;</span></p>
                 {% endfor %}
             </div>
 
@@ -310,7 +310,7 @@
                 placeholder="press enter to finish">
             <div name="resistances" class="prof-list-wrap">
                 {% for resis in sheet.features.resistances %}
-                <p class="prof-content" data-name={{resis}}>{{resis}}<span class="remove">&times;</span></p>
+                <p class="prof-content" data-name="{{resis}}">{{resis}}<span class="remove features">&times;</span></p>
                 {% endfor %}
             </div>
 
@@ -325,7 +325,7 @@
                 placeholder="press enter to finish">
             <div name="immunities" class="prof-list-wrap">
                 {% for immu in sheet.features.immunities %}
-                <p class="prof-content" data-name={{immu}}>{{immu}}<span class="remove">&times;</span></p>
+                <p class="prof-content" data-name="{{immu}}">{{immu}}<span class="remove features">&times;</span></p>
                 {% endfor %}
             </div>
 
@@ -340,7 +340,7 @@
                 placeholder="press enter to finish">
             <div name="vulnerabilities" class="prof-list-wrap">
                 {% for vunera in sheet.features.vulnerabilities %}
-                <p class="prof-content" data-name={{vunera}}>{{vunera}}<span class="remove">&times;</span>
+                <p class="prof-content" data-name="{{vunera}}">{{vunera}}<span class="remove features">&times;</span>
                 </p>
                 {% endfor %}
             </div>
@@ -357,7 +357,7 @@
 
             <div name="otherProfs" class="prof-list-wrap">
                 {% for other in sheet.features.otherProfs %}
-                <p class="prof-content" data-name={{other}}>{{other}}<span class="remove">&times;</span></p>
+                <p class="prof-content" data-name="{{other}}">{{other}}<span class="remove features">&times;</span></p>
                 {% endfor %}
             </div>
 

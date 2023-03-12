@@ -6,6 +6,13 @@
 </div>
 
 <div id="spell-list">
+    <input type="text" name = "delete-spells-title" class = "hidden">
+    <input type="text" name = "delete-spells-destination" class = "hidden">
+
+    <div class = "modal spell hidden">
+        hello
+    </div>
+
     <ul class="faqs spell-faqs">
         {% for spellLevel in sheet.spells.level %}
         <li class="faq listItem">
@@ -13,8 +20,8 @@
                 <button type="button" id={{spellLevel}} class="showAdd-spell">&#10010;</button>
             </div>
             {% for spell in sheet.spells.level[spellLevel] %}
-            <div name={{spell.name}}>
-                <p class="faq-title" data-name={{spell.name}} data-level = {{spellLevel}}>{{spell.name}}<span class="remove-spell">&times;</span></p>
+            <div name={{spellLevel}}>
+                <p class="faq-title" data-name="{{spell.name}}">{{spell.name}}<span class="remove spells">&times;</span></p>
                 <div class="faq-content spell-desc">
                     <div class="spell-info">
                         <div>

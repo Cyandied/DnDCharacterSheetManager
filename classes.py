@@ -1,6 +1,31 @@
 from func import d
 import math
 
+class Spell:
+    def __init__(self) -> None:
+        self.name = ""
+        self.level = ""
+        self.classes = ""
+        self.time = ""
+        self.range = ""
+        self.duration = ""
+        self.components =""
+        self.ritual =""
+        self.school = ""
+        self.text  =""
+
+
+class Item:
+    def __init__(self) -> None:
+        self.name = ""
+        self.detail =""
+        self.weight = ""
+        self.value = ""
+        self.text = ""
+
+
+
+
 class Feature:
     def __init__(self, title, desc) -> None:
         self.title = title
@@ -197,6 +222,7 @@ class Character:
                 "gp":0,
                 "pp":0
             },
+            "equipment":{
             "weapons":[],
             "armor":[],
             "consumables":[],
@@ -204,6 +230,8 @@ class Character:
             "important":[],
             "misc":[],
             "treasure":[]
+            }
+
         } if existingChr == None else existingChr["inventory"]
         self.spells = {
             "level":{

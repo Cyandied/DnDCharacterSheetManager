@@ -53,7 +53,7 @@ def getFiles():
         nameList.append(name)
     return nameList
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         with open("users.json", "r") as f:
@@ -109,6 +109,11 @@ def index():
 def sheet(character):
     with open(f'characters/{character}.json', "r") as f:
         sheet = json.loads(f.read())
+    with open("itemsSpellsFeatures/spells.json","r") as f:
+        spellsMaster = json.loads(f.read())
+    with open("itemsSpellsFeatures/items.json","r") as f:
+        itemsMaster = json.loads(f.read())
+
     sheet = Character(sheet)
     if request.method == "POST":
         sheet.Cname = request.form["Cname"]
@@ -216,19 +221,28 @@ def sheet(character):
         if request.form["vuneracontent"] != "":
             sheet.features["vulnerabilities"].append(request.form["vuneracontent"])
 
-        if request.form["delete-feature-title"] != "":
-            print(request.form["delete-feature-title"])
-            print(request.form["delete-feature-destination"])
-            get = sheet.features[request.form["delete-feature-destination"]]
+        if request.form["delete-features-title"] != "":
+            print(request.form["delete-features-title"])
+            print(request.form["delete-features-destination"])
+            get = sheet.features[request.form["delete-features-destination"]]
             if isinstance(get[0], str):
-                get.remove(request.form["delete-feature-title"])
+                get.remove(request.form["delete-features-title"])
             else:
                 for index, object in enumerate(get):
-                    if object["title"] == request.form["delete-feature-title"]:
+                    if object["title"] == request.form["delete-features-title"]:
                         get.pop(index)
+        
+        
+        if request.form["delete-spells-title"] != "":
+            print(request.form["delete-spells-title"])
+            print(request.form["delete-spells-destination"])
+            get = sheet.spells["level"][request.form["delete-spells-destination"]]
+            for index, object in enumerate(get):
+                if object["name"] == request.form["delete-spells-title"]:
+                    get.pop(index)
 
-        for name in sheet.biography["apperance"].keys():
-            sheet.biography["apperance"][name] = request.form[name]
+        for name in sheet.biography["appearance"].keys():
+            sheet.biography["appearance"][name] = request.form[name]
 
         for name in sheet.biography["personality"].keys():
             sheet.biography["personality"][name] = request.form[name]
@@ -255,7 +269,7 @@ def sheet(character):
     
     # context["data"] = data
 
-    return render_template("parts/sheet.html", sheet = sheet, name=character)
+    return render_template("parts/sheet.html", sheet = sheet, name=character, itemsMaster = itemsMaster, spellsMaster = spellsMaster)
 
 @app.route("/new-sheet", methods=["POST"])
 def new_sheet():
