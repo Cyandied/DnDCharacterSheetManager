@@ -1,6 +1,33 @@
 function run() {
     const tabs = document.querySelectorAll(".tab")
     const tab_contents = document.querySelectorAll(".tab-content")
+
+    const current_active_tab = document.querySelector("input[name=current-tab]").value;
+    document.querySelector('ul.tab-container').querySelector(`li.${current_active_tab}`).classList.add("active");
+    document.querySelector(`.tab-content[data-tab=${current_active_tab}]`).classList.add("active");
+
+    // for (let tab of tabs) {
+    //     if(past_tab !== "" && tab.classList.contains(past_tab)){
+    //         tabs.forEach(t => t.classList.remove("active"))
+    //         tab.classList.add("active")
+
+    //         for (let content of tab_contents) {
+    //             content.classList.remove("active")
+
+    //             if (tab.classList.contains(content.dataset.tab)) {
+    //                 content.classList.add("active")
+    //             }
+
+    //         }
+    //     }
+    //     else{
+    //         document.querySelector("li.overview").classList.add("active")
+    //         document.querySelector("div[data-tab = overview]").classList.add("active")
+    //     }
+    // }
+
+
+
     const inputs = document.querySelectorAll("input")
     const selectors = document.querySelectorAll("select")
     const rollHdie = document.querySelector("#roll-hit-die")
@@ -28,7 +55,6 @@ function run() {
     const add_custom_spell = document.querySelectorAll(".make-spell")
     
     const add_custom_item = document.querySelectorAll(".make-item")
-
 
     add_to_item_list.forEach(element => {
         element.addEventListener("click", e => {
@@ -179,6 +205,7 @@ function run() {
 
     for (let [index, title] of faqs_titles.entries()) {
         title.addEventListener("click", e => {
+            if(e.target == title){
             if (title.classList.contains("active")) {
                 title.classList.remove("active")
                 faq_contents[index].classList.remove("active")
@@ -186,13 +213,14 @@ function run() {
             else {
                 title.classList.add("active")
                 faq_contents[index].classList.add("active")
-            }
+            }}
         })
     }
 
 
 
     for (let tab of tabs) {
+
         tab.addEventListener("click", e => {
 
             tabs.forEach(t => t.classList.remove("active"))
@@ -201,8 +229,9 @@ function run() {
             for (let content of tab_contents) {
                 content.classList.remove("active")
 
-                if (e.target.classList[1] == content.dataset.tab) {
+                if (e.target.classList.contains(content.dataset.tab)) {
                     content.classList.add("active")
+                    document.querySelector("input[name = current-tab]").value = content.dataset.tab
                 }
 
             }
@@ -224,9 +253,9 @@ function run() {
             input.addEventListener("change", submit)
             continue
         }
-        if (!input.classList.contains("addFeat") && !input.classList.contains("submit-not")) {
-            input.addEventListener("focusout", submit)
-        }
+        // if (!input.classList.contains("addFeat") && !input.classList.contains("submit-not")) {
+        //     input.addEventListener("focusout", submit)
+        // }
 
     }
 

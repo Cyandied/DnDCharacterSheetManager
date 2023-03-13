@@ -96,7 +96,12 @@
     <ul class="faqs spell-faqs">
         {% for spellLevel in sheet.spells.level %}
         <li class="faq listItem">
-            <div class="faq-inner-title"><label>{{spellLevel}} </label>
+            <div class="faq-inner-title"><label>{{spellLevel}}</label>
+
+                {% if spellLevel is ne("cantrips") %}
+                <input type="number" name = "{{spellLevel}}-value" value = {{sheet.spells.spellSlots[spellLevel].value}}> / <input type="number" name = "{{spellLevel}}-max" value = {{sheet.spells.spellSlots[spellLevel].max}}>
+                {% endif %}
+
                 <button type="button" id={{spellLevel}} class="showAdd-spell">&#10010;</button>
             </div>
             {% for spell in sheet.spells.level[spellLevel] %}

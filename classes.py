@@ -251,6 +251,44 @@ class Character:
                 "ability":"",
                 "saveDC":0,
                 "bonus":0
+            },
+            "spellSlots":{
+            "level1":{
+            "value":0,
+            "max":0
+            },
+            "level2":{
+            "value":0,
+            "max":0
+            },
+            "level3":{
+            "value":0,
+            "max":0
+            },
+            "level4":{
+            "value":0,
+            "max":0
+            },
+            "level5":{
+            "value":0,
+            "max":0
+            },
+            "level6":{
+            "value":0,
+            "max":0
+            },
+            "level7":{
+            "value":0,
+            "max":0
+            },
+            "level8":{
+            "value":0,
+            "max":0
+            },
+            "level9":{
+            "value":0,
+            "max":0
+            }
             }
         } if existingChr == None else existingChr["spells"]
 

@@ -39,10 +39,11 @@
             <li class="faq listItem">
                 {% for item in itemsMaster %}
                 <div class="item-in-master-list">
-                    <div class="faq-inner-title"><label>{{slot}} </label>
+                    <div class="faq-inner-title"><label>{{slot}}</label>
                     </div>
                     <div name={{slot}}>
-                        <p class="faq-title name" data-name="{{item.name}}">{{item.name}}</p>
+                        <p class="faq-title name" data-name="{{item.name}}">{{item.name}}<span
+                            class="add-to-list-items">&#10010;</span></p>
                         <div class="faq-content item-desc">
                             <div class="item-info">
                                 {% for attrib in item%}
@@ -68,21 +69,25 @@
     <ul class="faqs spell-faqs">
         {% for slot in sheet.inventory.equipment %}
         <li class="faq listItem">
-            <div class="faq-inner-title"><label>{{slot}} </label>
+            <div class="faq-inner-title"><label>{{slot}}</label>
                 <button type="button" id={{slot}} class="showAdd-item">&#10010;</button>
             </div>
             {% for item in sheet.inventory.equipment[slot] %}
             <div name={{slot}}>
-                <p class="faq-title" data-name="{{item.name}}">{{item.name}}<span class="remove items">&times;</span>
+                <p class="faq-title" data-name="{{item.name}}">{{item.name}}
+                    <input type="number" name = "{{item.name}}-amount" value={{item.amount}}>
+                    <span class="remove items">&times;</span>
                 </p>
                 <div class="faq-content item-desc">
                     <div class="item-info">
                         {% for attrib in item%}
                         {% if attrib is ne("text") %}
+                        {% if attrib is ne("amount")%}
                         <div>
                             <label>{{attrib}}</label>
                             <span>{{item[attrib]}}</span>
                         </div>
+                        {% endif %}
                         {% endif %}
                         {% endfor %}
                     </div>

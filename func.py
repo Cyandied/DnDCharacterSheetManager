@@ -37,7 +37,7 @@ def d(num:int, faces:int)-> int:
     return sum(res)
 
 
-get = "AcquisitionsIncorporated/items-ai.xml"
+get = "SwordCoastAdventurersGuide/items-scag.xml"
 
 user = "kinkofer"
 repo_name = "FightClub5eXML"

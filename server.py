@@ -107,6 +107,8 @@ def index():
 @app.route("/sheet/<character>", methods=["POST","GET"])
 @login_required
 def sheet(character):
+    active_tab = "overview"
+    
     with open(f'characters/{character}.json', "r") as f:
         sheet = json.loads(f.read())
     with open("itemsSpellsFeatures/spells.json","r") as f:
@@ -122,7 +124,7 @@ def sheet(character):
         sheet.base["background"] = request.form["background"]
         sheet.base["race"] = request.form["race"]
         sheet.base["Pname"] = request.form["Pname"]
-        sheet.base["alingment"] = request.form["race"]
+        sheet.base["alingment"] = request.form["alingment"]
 
         sheet.ability["str"] = int(request.form["str"])
         sheet.ability["dex"] = int(request.form["dex"])
@@ -157,7 +159,7 @@ def sheet(character):
         sheet.base["deathSaves"]["failures"] = sum(["fail1" in request.form, "fail2" in request.form, "fail3" in request.form])
         sheet.base["deathSaves"]["successes"] = sum(["succ1" in request.form, "succ2" in request.form, "succ3" in request.form])
 
-        if request.form["roll"] == "true":
+        if request.form["roll"] == "true" and sheet.base["hp"]["hitDice"]["sides"] != 0:
             sheet.addHitDie()
 
         if request.form["temp"] == "":
@@ -261,6 +263,11 @@ def sheet(character):
 
             sheet.biography["portrait"] = file_name
 
+        for level in sheet.spells["level"]:
+            if level != "cantrips":
+                sheet.spells["spellSlots"][level]["value"] = request.form[f'{level}-value']
+                sheet.spells["spellSlots"][level]["max"] = request.form[f'{level}-max']
+
         if request.form["add-to-spell-list-name"] != "":
             for spell in spellsMaster:
                 if spell["name"] == request.form["add-to-spell-list-name"]:
@@ -301,7 +308,8 @@ def sheet(character):
         if request.form["add-to-item-list-name"] != "":
             for item in itemsMaster:
                 if item["name"] == request.form["add-to-item-list-name"]:
-                    sheet.items["level"][request.form["add-to-item-list-level"]].append(item)
+                    item["amount"] = 1
+                    sheet.inventory["equipment"][request.form["add-to-item-list-level"]].append(item)
                     break
 
         if request.form["item-name-custom"] != "":
@@ -318,27 +326,29 @@ def sheet(character):
             with open(f'itemsSpellsFeatures/items.json', "w") as outfile:
                 outfile.write(json.dumps(object))
             if request.form["add-to-only-master"] == "":
+                item = custom_item.__dict__
+                item["amount"] = 1
                 sheet.inventory["equipment"][request.form["add-to-item-list-level"]].append(custom_item.__dict__)
 
 
+        for slot in sheet.inventory["equipment"]:
+            for item in sheet.inventory["equipment"][slot]:
+                item["amount"] = request.form[f'{item["name"]}-amount'] if f'{item["name"]}-amount' in request.form else 1
 
         for monies in sheet.inventory["money"]:
             sheet.inventory["money"][monies] = request.form[monies]
 
         for thing in sheet.spells["spellBase"]:
             sheet.spells["spellBase"][str(thing)] = request.form[thing]
+        active_tab = request.form["current-tab"]
 
 
     with open(f'characters/{character}.json', "w") as f:
         f.write(json.dumps(sheet.__dict__))
 
     
-    # with open("data.json", "r") as f:
-    #     data = json.loads(f.read())
-    
-    # context["data"] = data
 
-    return render_template("parts/sheet.html", sheet = sheet, name=character, itemsMaster = itemsMaster, spellsMaster = spellsMaster)
+    return render_template("parts/sheet.html", sheet = sheet, name=character, itemsMaster = itemsMaster, spellsMaster = spellsMaster, active_tab = active_tab)
 
 #Start server:
 #flask --app server run --debug

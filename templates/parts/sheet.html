@@ -7,6 +7,7 @@
 
 <body id="sheet">
     <form id="sheet-form" method="post" enctype="multipart/form-data">
+        <input type="text" name = "current-tab" class = "hidden" value="{{active_tab if active_tab else 'overview'}}" >
         <label for="Cname">Character name:</label>
         <input type="text" value="{{sheet.Cname}}" name="Cname">
 
@@ -42,7 +43,7 @@
             </div>
         </div>
         <ul class="tab-container">
-            <li class="tab overview active">
+            <li class="tab overview">
                 Overview
             </li>
             <li class="tab spells">
@@ -55,7 +56,7 @@
                 Biography
             </li>
         </ul>
-        <div class="tab-content active" data-tab="overview">
+        <div class="tab-content" data-tab="overview">
             {% include "parts/overview.html" %}
         </div>
         <div class="tab-content" data-tab="spells">
