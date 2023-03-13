@@ -13,7 +13,24 @@ function run() {
     const text_area = document.querySelectorAll("textarea")
     const modal_spells = document.querySelector(".modal.spell")
     const add_spell = document.querySelectorAll(".showAdd-spell")
+    const filter_spells_button  =document.querySelector("#apply-filter-spell")
+    const spells_in_master  =document.querySelectorAll(".spell-in-master-list")
 
+    filter_spells_button.addEventListener("click", e=>{
+        const look_for_level = document.querySelector("#filter-by-level-spell").value
+        const look_for_class = document.querySelector("#filter-by-classes-spell").value
+        const look_for_name = document.querySelector("#filter-by-name-spell").value
+        if ( look_for_level !== ""){
+            for(let spell of spells_in_master){
+                const spell_level = spell.querySelector(".level").querySelector("span").innerHTML
+                if( spell_level ==  look_for_level){
+                    if(spell.classList.contains("hidden")){
+                        spell.classList.remove("hidden")
+                    }
+                }
+            }
+        }
+    })
 
     for (let button of add_spell) {
         button.addEventListener("click", e => {
@@ -111,7 +128,7 @@ function run() {
             input.addEventListener("change", submit)
             continue
         }
-        if (!input.classList.contains("addFeat")) {
+        if (!input.classList.contains("addFeat") && !input.classList.contains("submit-not")) {
             input.addEventListener("focusout", submit)
         }
 

@@ -23,7 +23,11 @@
     width: 100% !important;
 }
 
-.showAdd-spell {
+.spell-master-faqs {
+    max-height: 700px !important;
+}
+
+.showAdd-spell,.add-to-list {
     float: right;
 }
 

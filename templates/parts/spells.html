@@ -6,11 +6,69 @@
 </div>
 
 <div id="spell-list">
-    <input type="text" name = "delete-spells-title" class = "hidden">
-    <input type="text" name = "delete-spells-destination" class = "hidden">
+    <input type="text" name="delete-spells-title" class="hidden">
+    <input type="text" name="delete-spells-destination" class="hidden">
 
-    <div class = "modal spell hidden">
-        hello
+    <div class="modal spell hidden">
+        <div>
+            <button type="button" id="add-spell">add to list</button>
+            <button type="button" id="make-spell">make custom</button>
+        </div>
+        <div>
+            <input type="text" id="filter-by-level-spell" class = "submit-not" placeholder="enter level of spell">
+            <input type="text" id="filter-by-classes-spell"  class = "submit-not" placeholder="enter class of spell">
+            <input type="text" id="filter-by-name-spell"  class = "submit-not" placeholder="enter name of spell">
+        </div>
+        <button type="button" id="apply-filter-spell">search</button>
+
+        <ul class="faqs spell-master-faqs">
+            <li class="faq listItem">
+                {% for spell in spellsMaster %}
+                <div class  ="spell-in-master-list">
+                    <p class="faq-title name" data-name="{{spell.name}}">{{spell.name}} <span class = "add-to-list">&#10010;</span> </p>
+                    <div class="faq-content spell-desc">
+                        <div class="spell-info">
+                            <div class = "level">
+                                <label>level:</label>
+                                <span>{{spell.level}}</span>
+                            </div>
+                            <div  class = "classes">
+                                <label>classes:</label>
+                                <span>{{spell.classes}}</span>
+                            </div>
+                            <div>
+                                <label>time:</label>
+                                <span>{{spell.time}}</span>
+                            </div>
+                            <div>
+                                <label>range:</label>
+                                <span>{{spell.range}}</span>
+                            </div>
+                            <div>
+                                <label>duration:</label>
+                                <span>{{spell.duration}}</span>
+                            </div>
+                            <div>
+                                <label>components:</label>
+                                <span>{{spell.components}}</span>
+                            </div>
+                            <div>
+                                <label>ritual:</label>
+                                <span>{{spell.ritual}}</span>
+                            </div>
+                            <div>
+                                <label>school:</label>
+                                <span>{{spell.school}}</span>
+                            </div>
+                        </div>
+                        <span class="spell-desc">{{spell.text}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </li>
+        </ul>
+        
+
     </div>
 
     <ul class="faqs spell-faqs">
@@ -21,7 +79,8 @@
             </div>
             {% for spell in sheet.spells.level[spellLevel] %}
             <div name={{spellLevel}}>
-                <p class="faq-title" data-name="{{spell.name}}">{{spell.name}}<span class="remove spells">&times;</span></p>
+                <p class="faq-title" data-name="{{spell.name}}">{{spell.name}}<span class="remove spells">&times;</span>
+                </p>
                 <div class="faq-content spell-desc">
                     <div class="spell-info">
                         <div>
