@@ -2,7 +2,7 @@ from func import d
 import math
 
 class Spell:
-    def __init__(self) -> None:
+    def __init__(self):
         self.name = ""
         self.level = ""
         self.classes = ""
@@ -16,7 +16,7 @@ class Spell:
 
 
 class Item:
-    def __init__(self) -> None:
+    def __init__(self):
         self.name = ""
         self.detail =""
         self.weight = ""
@@ -27,7 +27,7 @@ class Item:
 
 
 class Feature:
-    def __init__(self, title, desc) -> None:
+    def __init__(self, title, desc):
         self.title = title
         self.desc = desc
 
@@ -247,7 +247,7 @@ class Character:
             "level9":[]
             },
             "spellBase":{
-                "class":"",
+                "spellClass":"",
                 "ability":"",
                 "saveDC":0,
                 "bonus":0

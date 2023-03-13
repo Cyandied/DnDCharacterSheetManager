@@ -2,7 +2,7 @@
 
 {% block content %}
 <header>
-    <h1>DnD 5e Character Sheet Manager</h1>
+    <h1><a href="/index">DnD 5e Character Sheet Manager</a></h1>
 </header>
 
 <body id="sheet">
@@ -55,10 +55,10 @@
                 Biography
             </li>
         </ul>
-        <div class="tab-content" data-tab="overview">
+        <div class="tab-content active" data-tab="overview">
             {% include "parts/overview.html" %}
         </div>
-        <div class="tab-content active" data-tab="spells">
+        <div class="tab-content" data-tab="spells">
             {% include "parts/spells.html" %}
         </div>
         <div class="tab-content" data-tab="inventory">

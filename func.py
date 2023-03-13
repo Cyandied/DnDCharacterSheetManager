@@ -23,7 +23,8 @@ def addTo(url:str, type:str, toKeep:str)->None:
     with open(f'itemsSpellsFeatures/{type}.json', "r") as outfile:
         object = json.loads(outfile.read())
 
-    object.append(contentAsDict["compendium"][toKeep])
+    for entry in contentAsDict["compendium"][toKeep]:
+        object.append(entry)
 
     with open(f'itemsSpellsFeatures/{type}.json', "w") as outfile:
         outfile.write(json.dumps(object))
@@ -36,7 +37,7 @@ def d(num:int, faces:int)-> int:
     return sum(res)
 
 
-get = "XanatharsGuideToEverything/items-xge.xml"
+get = "AcquisitionsIncorporated/items-ai.xml"
 
 user = "kinkofer"
 repo_name = "FightClub5eXML"

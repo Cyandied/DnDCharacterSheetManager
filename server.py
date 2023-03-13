@@ -2,7 +2,7 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from os import listdir
 from os.path import isfile, join
-from classes import Character, Feature
+from classes import Character, Feature, Spell, Item
 from flask_login import LoginManager, UserMixin, login_user, login_required
 import uuid
 
@@ -104,7 +104,7 @@ def index():
 
     return render_template("index.html", files = files)
 
-@app.route("/sheet/<character>", methods=["GET", "POST"])
+@app.route("/sheet/<character>", methods=["POST","GET"])
 @login_required
 def sheet(character):
     with open(f'characters/{character}.json', "r") as f:
@@ -254,14 +254,83 @@ def sheet(character):
         sheet.biography["notes"] = request.form["notes"]
 
         file = request.files["profile-picture"]
-        file_extension = file.filename.split(".")[-1]
-        file_name = f'{character}.{file_extension}'
-        file.save(join("static","profilePics", file_name))
+        if file:
+            file_extension = file.filename.split(".")[-1]
+            file_name = f'{character}.{file_extension}'
+            file.save(join("static","profilePics", file_name))
 
-        sheet.biography["portrait"] = file_name
+            sheet.biography["portrait"] = file_name
 
-        with open(f'characters/{character}.json', "w") as f:
-            f.write(json.dumps(sheet.__dict__))
+        if request.form["add-to-spell-list-name"] != "":
+            for spell in spellsMaster:
+                if spell["name"] == request.form["add-to-spell-list-name"]:
+                    sheet.spells["level"][request.form["add-to-spell-list-level"]].append(spell)
+                    break
+
+        if request.form["spell-name-custom"] != "":
+            custom_spell = Spell()
+            custom_spell.name = request.form["spell-name-custom"]
+            custom_spell.level = request.form["spell-level-custom"]
+            custom_spell.classes = request.form["spell-classes-custom"]
+            custom_spell.time = request.form["spell-time-custom"]
+            custom_spell.range = request.form["spell-range-custom"]
+            custom_spell.duration = request.form["spell-duration-custom"]
+            custom_spell.components = request.form["spell-components-custom"]
+            custom_spell.ritual = request.form["spell-ritual-custom"]
+            custom_spell.school = request.form["spell-school-custom"]
+            custom_spell.text = request.form["spell-text-custom"]
+
+            with open(f'itemsSpellsFeatures/spells.json', "r") as outfile:
+                object = json.loads(outfile.read())
+            object.append(custom_spell.__dict__)
+            with open(f'itemsSpellsFeatures/spells.json', "w") as outfile:
+                outfile.write(json.dumps(object))
+            if request.form["add-to-only-master"] == "":
+                sheet.spells["level"][request.form["add-to-spell-list-level"]].append(custom_spell.__dict__)
+
+
+
+        if request.form["delete-items-title"] != "":
+            print(request.form["delete-items-title"])
+            print(request.form["delete-items-destination"])
+            get = sheet.inventory["equipment"][request.form["delete-items-destination"]]
+            for index, object in enumerate(get):
+                if object["name"] == request.form["delete-items-title"]:
+                    get.pop(index)
+
+        if request.form["add-to-item-list-name"] != "":
+            for item in itemsMaster:
+                if item["name"] == request.form["add-to-item-list-name"]:
+                    sheet.items["level"][request.form["add-to-item-list-level"]].append(item)
+                    break
+
+        if request.form["item-name-custom"] != "":
+            custom_item = Item()
+            custom_item.name = request.form["item-name-custom"]
+            custom_item.detail = request.form["item-detail-custom"]
+            custom_item.weight = request.form["item-weight-custom"]
+            custom_item.value = request.form["item-value-custom"]
+            custom_item.text = request.form["item-text-custom"]
+
+            with open(f'itemsSpellsFeatures/items.json', "r") as outfile:
+                object = json.loads(outfile.read())
+            object.append(custom_item.__dict__)
+            with open(f'itemsSpellsFeatures/items.json', "w") as outfile:
+                outfile.write(json.dumps(object))
+            if request.form["add-to-only-master"] == "":
+                sheet.inventory["equipment"][request.form["add-to-item-list-level"]].append(custom_item.__dict__)
+
+
+
+        for monies in sheet.inventory["money"]:
+            sheet.inventory["money"][monies] = request.form[monies]
+
+        for thing in sheet.spells["spellBase"]:
+            sheet.spells["spellBase"][str(thing)] = request.form[thing]
+
+
+    with open(f'characters/{character}.json', "w") as f:
+        f.write(json.dumps(sheet.__dict__))
 
     
     # with open("data.json", "r") as f:
@@ -270,11 +339,6 @@ def sheet(character):
     # context["data"] = data
 
     return render_template("parts/sheet.html", sheet = sheet, name=character, itemsMaster = itemsMaster, spellsMaster = spellsMaster)
-
-@app.route("/new-sheet", methods=["POST"])
-def new_sheet():
-    print(request.body)
-    return json.dumps("{'test': 'test'}")
 
 #Start server:
 #flask --app server run --debug

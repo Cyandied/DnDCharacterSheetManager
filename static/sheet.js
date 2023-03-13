@@ -11,40 +11,137 @@ function run() {
     const remove_buttons = document.querySelectorAll(".remove")
     const form = document.querySelector("#sheet-form")
     const text_area = document.querySelectorAll("textarea")
+
     const modal_spells = document.querySelector(".modal.spell")
     const add_spell = document.querySelectorAll(".showAdd-spell")
-    const filter_spells_button  =document.querySelector("#apply-filter-spell")
-    const spells_in_master  =document.querySelectorAll(".spell-in-master-list")
+    const spell_filter_button = document.querySelector("#apply-filter-spell");
+    const spells = document.querySelectorAll(".spell-in-master-list");
+    const add_to_spell_list = document.querySelectorAll(".add-to-list-spells")
 
-    filter_spells_button.addEventListener("click", e=>{
-        const look_for_level = document.querySelector("#filter-by-level-spell").value
-        const look_for_class = document.querySelector("#filter-by-classes-spell").value
-        const look_for_name = document.querySelector("#filter-by-name-spell").value
-        if ( look_for_level !== ""){
-            for(let spell of spells_in_master){
-                const spell_level = spell.querySelector(".level").querySelector("span").innerHTML
-                if( spell_level ==  look_for_level){
-                    if(spell.classList.contains("hidden")){
-                        spell.classList.remove("hidden")
-                    }
-                }
+    const modal_items = document.querySelector(".modal.item")
+    const add_item = document.querySelectorAll(".showAdd-item")
+    const item_filter_button = document.querySelector("#apply-filter-item");
+    const items = document.querySelectorAll(".item-in-master-list");
+    const add_to_item_list = document.querySelectorAll(".add-to-list-items")
+
+    const add_to_master_only = document.querySelector(".add-to-only-master")
+    const add_custom_spell = document.querySelectorAll(".make-spell")
+    
+    const add_custom_item = document.querySelectorAll(".make-item")
+
+
+    add_to_item_list.forEach(element => {
+        element.addEventListener("click", e => {
+            const item_name = element.closest("p").dataset.name
+            document.querySelector("input[name = add-to-item-list-name]").value = item_name
+            submit()
+        }) 
+    });
+
+    add_custom_item.forEach(button => {
+        button.addEventListener("click", e=>{
+            if(document.querySelector("#add-custom-item").classList.contains("hidden")){
+                document.querySelector("#add-custom-item").classList.remove("hidden")
+                return
             }
-        }
+            document.querySelector("#add-custom-item").classList.add("hidden")
+        })
     })
+
+    item_filter_button.addEventListener("click", e => {
+        const itemFilterName = document.querySelector("#filter-by-name-item").value;
+
+        items.forEach(item => {
+            const itemName = item.querySelector(".name").dataset.name.toLowerCase();
+
+            if(itemFilterName && !itemName.includes(itemFilterName)) {
+                item.classList.add("hidden");
+                return;
+            }
+
+            item.classList.remove("hidden");
+        });
+    });
+
+    for (let button of add_item) {
+        button.addEventListener("click", e => {
+            if (modal_items.classList.contains("hidden")) {
+                modal_items.classList.remove("hidden")
+                document.querySelector("input[name = add-to-item-list-level]").value = button.id
+            }
+            else {
+                modal_items.classList.add("hidden")
+            }
+        })
+    }
+
+    add_custom_spell.forEach(button => {
+        button.addEventListener("click", e=>{
+            if(document.querySelector("#add-custom-spell").classList.contains("hidden")){
+                document.querySelector("#add-custom-spell").classList.remove("hidden")
+                return
+            }
+            document.querySelector("#add-custom-spell").classList.add("hidden")
+        })
+    })
+
+    add_to_master_only.addEventListener("click", e=>{
+        document.querySelector(".add-to-only-master").value = "true"
+        submit()
+    })
+
+    add_to_spell_list.forEach(element => {
+        element.addEventListener("click", e => {
+            const spell_name = element.closest("p").dataset.name
+            document.querySelector("input[name = add-to-spell-list-name]").value = spell_name
+            submit()
+        }) 
+    });
+
+    spell_filter_button.addEventListener("click", e => {
+        const spellFilterLevel = document.querySelector("#filter-by-level-spell").value;
+        const spellFilterClass = document.querySelector("#filter-by-classes-spell").value.toLowerCase();
+        const spellFilterName = document.querySelector("#filter-by-name-spell").value.toLowerCase();
+
+        spells.forEach(spell => {
+            const spellLevel = spell.querySelector(".level").querySelector("span").innerHTML.toLowerCase();
+            const spellClasses = spell.querySelector(".classes").querySelector("span").innerHTML.toLowerCase();
+            const spellName = spell.querySelector(".name").dataset.name.toLowerCase();
+
+            if(spellFilterLevel && spellFilterLevel !== spellLevel) {
+                spell.classList.add("hidden");
+                return;
+            }
+            
+            if(spellFilterClass && !spellClasses.includes(spellFilterClass)) {
+                spell.classList.add("hidden");
+                return;
+            }
+            
+            if(spellFilterName && !spellName.includes(spellFilterName)) {
+                spell.classList.add("hidden");
+                return;
+            }
+
+            spell.classList.remove("hidden");
+        });
+    });
 
     for (let button of add_spell) {
         button.addEventListener("click", e => {
             if (modal_spells.classList.contains("hidden")) {
                 modal_spells.classList.remove("hidden")
+                document.querySelector("input[name = add-to-spell-list-level]").value = button.id
             }
-            else{
-            modal_spells.classList.add("hidden")}
+            else {
+                modal_spells.classList.add("hidden")
+            }
         })
     }
 
 
     for (let text of text_area) {
-        if (!text.classList.contains("addFeat")) {
+        if (!text.classList.contains("addFeat") && !text.classList.contains("submit-not")) {
             text.addEventListener("focusout", submit)
         }
 
@@ -80,10 +177,9 @@ function run() {
         })
     }
 
-
     for (let [index, title] of faqs_titles.entries()) {
         title.addEventListener("click", e => {
-            if (title.classList[1] === "active") {
+            if (title.classList.contains("active")) {
                 title.classList.remove("active")
                 faq_contents[index].classList.remove("active")
             }

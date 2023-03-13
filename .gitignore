@@ -3,3 +3,4 @@ README.md
 venv
 flask_test
 profilePics/*
+users.json

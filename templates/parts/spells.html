@@ -9,30 +9,52 @@
     <input type="text" name="delete-spells-title" class="hidden">
     <input type="text" name="delete-spells-destination" class="hidden">
 
+    <input type="text" name="add-to-spell-list-level" class="hidden">
+    <input type="text" name="add-to-spell-list-name" class="hidden">
+
     <div class="modal spell hidden">
-        <div>
-            <button type="button" id="add-spell">add to list</button>
-            <button type="button" id="make-spell">make custom</button>
+        <button type="button" class = "make-spell">make custom</button>
+        <div id="add-custom-spell" class = "hidden">
+            <section>
+                <input type="text" name="spell-name-custom" placeholder="name" class="submit-not">
+                <input type="text" name="spell-level-custom" placeholder="level" class="submit-not">
+                <input type="text" name="spell-classes-custom" placeholder="classes" class="submit-not">
+                <input type="text" name="spell-time-custom" placeholder="time" class="submit-not">
+                <input type="text" name="spell-range-custom" placeholder="range" class="submit-not">
+                <input type="text" name="spell-duration-custom" placeholder="duration" class="submit-not">
+                <input type="text" name="spell-components-custom" placeholder="components" class="submit-not">
+                <input type="text" name="spell-ritual-custom" placeholder="ritual" class="submit-not">
+                <input type="text" name="spell-school-custom" placeholder="school" class="submit-not">
+            </section>
+            <textarea name="spell-text-custom" class="submit-not" placeholder="text"></textarea>
+            <div style="display: flex; justify-content: space-between; gap: 5px;">
+                <button type="button" class = "add-to-only-master">add to master list</button>
+                <button>add to master list and own spell list</button>
+                <button type="button" class = "make-spell">cancel</button>
+            </div>
+            <span>This action will close the modal</span>
+            <input type="text" name="add-to-only-master" class = "hidden">
         </div>
         <div>
-            <input type="text" id="filter-by-level-spell" class = "submit-not" placeholder="enter level of spell">
-            <input type="text" id="filter-by-classes-spell"  class = "submit-not" placeholder="enter class of spell">
-            <input type="text" id="filter-by-name-spell"  class = "submit-not" placeholder="enter name of spell">
+            <input type="text" id="filter-by-level-spell" class="submit-not" placeholder="enter level of spell">
+            <input type="text" id="filter-by-classes-spell" class="submit-not" placeholder="enter class of spell">
+            <input type="text" id="filter-by-name-spell" class="submit-not" placeholder="enter name of spell">
         </div>
         <button type="button" id="apply-filter-spell">search</button>
 
         <ul class="faqs spell-master-faqs">
             <li class="faq listItem">
                 {% for spell in spellsMaster %}
-                <div class  ="spell-in-master-list">
-                    <p class="faq-title name" data-name="{{spell.name}}">{{spell.name}} <span class = "add-to-list">&#10010;</span> </p>
+                <div class="spell-in-master-list">
+                    <p class="faq-title name" data-name="{{spell.name}}">{{spell.name}}<span
+                            class="add-to-list-spells">&#10010;</span> </p>
                     <div class="faq-content spell-desc">
                         <div class="spell-info">
-                            <div class = "level">
+                            <div class="level">
                                 <label>level:</label>
                                 <span>{{spell.level}}</span>
                             </div>
-                            <div  class = "classes">
+                            <div class="classes">
                                 <label>classes:</label>
                                 <span>{{spell.classes}}</span>
                             </div>
@@ -67,7 +89,7 @@
                 {% endfor %}
             </li>
         </ul>
-        
+
 
     </div>
 

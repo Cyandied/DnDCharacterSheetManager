@@ -1,21 +1,65 @@
-#spell-base {
+#spell-base, #item-base {
     display: flex;
     flex-direction: column;
 }
 
-.spell-desc {
-    display: flex;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.spell-info {
+#add-custom-spell, #add-custom-item {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #EAD5CC;
+    border: solid 2px #0C0907;
+    border-radius: 20px;
+    width: 90%;
+    padding: 10px;
+    align-items: center;
+}
+
+#add-custom-spell > section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 695px;
+    gap: 5px;
+}
+
+#add-custom-item > section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 465px;
+    gap: 5px;
+}
+
+#add-custom-spell > textarea,
+#add-custom-item > textarea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 70%;
+    border-radius: 10px;
+    background-color: #0C0907;
+    padding: 5px 10px;
+    color: #EAD5CC;
+    border-style: none;
+}
+
+.spell-desc, .item-desc {
+    display: flex;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.spell-info, .item-info {
     display: flex;
     flex-direction: column;
     width: 70%;
-}
-
-.spell-desc {
-    font-size: 15px;
-    text-align: justify;
 }
 
 .spell-faqs {
@@ -24,16 +68,35 @@
 }
 
 .spell-master-faqs {
-    max-height: 700px !important;
+    max-height: 400px !important;
+    width: 100%;
+    padding: 0;
 }
 
 .showAdd-spell,.add-to-list {
     float: right;
 }
 
-#spell-list {
+#spell-list, #item-list {
     width: 80%;
     line-height: 1.5;
+}
+
+.modal.spell, .modal.item {
+    max-height: 800px;
+    width: 880px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    overflow-x: hidden;
+}
+
+.modal.spell > div > input,
+#add-custom-spell > section > input,
+.modal.item > div > input,
+#add-custom-item > section > input {
+    font-size: 15px;
 }
 
 .tab-content {
@@ -178,8 +241,6 @@ input[type="checkbox"] {
     color: #E0C6BB;
 }
 
-
-
 .tab-content.active {
     display: flex;
 }
@@ -191,15 +252,12 @@ input[type="checkbox"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: solid 2px;
-    border-radius: 10px;
+    border: solid 3px;
+    border-radius: 20px;
     padding: 20px;
-    border-radius: 0.5rem;
     overflow: auto;
     background-color: #E0C6BB;
 }
-
-
 
 #base {
     display: flex;
@@ -261,7 +319,6 @@ input[name="Cname"] {
 
 #attributes {
     display: flex;
-    /* flex-direction: column; */
     width: 25%;
     flex-wrap: wrap;
     height: 420px;
