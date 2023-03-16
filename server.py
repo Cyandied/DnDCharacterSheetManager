@@ -1,6 +1,6 @@
 import json
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from os import listdir
+from os import listdir, remove
 from os.path import isfile, join
 from classes import Character, Feature, Spell, Item
 from flask_login import LoginManager, UserMixin, login_user, login_required
@@ -105,7 +105,7 @@ def index():
     return render_template("index.html", files = files)
 
 @app.route("/sheet/<character>", methods=["POST","GET"])
-@login_required
+# @login_required
 def sheet(character):
     active_tab = "overview"
     
@@ -259,6 +259,8 @@ def sheet(character):
         if file:
             file_extension = file.filename.split(".")[-1]
             file_name = f'{character}.{file_extension}'
+            if sheet.biography["portrait"]:
+                remove(join("static","profilePics", sheet.biography["portrait"]))
             file.save(join("static","profilePics", file_name))
 
             sheet.biography["portrait"] = file_name

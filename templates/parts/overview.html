@@ -108,14 +108,14 @@
 
         <div>
             <label for="init">initiative</label>
-            <input readonly type="number" name="init" value={{sheet.base.initiative}}>
+            <input readonly type="number" name="init" value={{sheet.base.initiative}} class = "non-interactable-input">
         </div>
 
 
     </div>
 
     <label for="passive-per">passive perception</label>
-    <input readonly type="number" name="passive-per" value={{sheet.base.passivePerception}}>
+    <input readonly type="number" name="passive-per" value={{sheet.base.passivePerception}} class = "non-interactable-input">
 
 
     <div id="hp-stuff">
@@ -185,7 +185,10 @@
     <ul class="faqs">
         <li class="faq listItem">
             <div class="faq-inner-title"><label for="classFeatures">class features</label><button
-                    type="button" id="classAdd" class="showAdd">&#10010;</button></div>
+                    type="button" id="classAdd" class="showAdd">&#10010;</button>
+                
+                
+                </div>
 
             <input type="text" name="classFeatTitle" class="addFeat classAdd hidden"
                 placeholder="feature title">
@@ -197,7 +200,7 @@
             <div name="classFeatures">
                 <p class="faq-title" data-name="{{feat.title}}">{{feat.title}}<span
                         class="remove features">&times;</span></p>
-                <div class="faq-content">
+                <div class="faq-content" style = "white-space: pre-wrap;">
                     {{feat.desc}}
                 </div>
             </div>
@@ -218,7 +221,7 @@
             <div name="raceFeatures">
                 <p class="faq-title" data-name="{{feat.title}}">{{feat.title}}<span
                         class="remove features">&times;</span></p>
-                <div class="faq-content">
+                <div class="faq-content" style = "white-space: pre-wrap;">
                     {{feat.desc}}
                 </div>
             </div>
@@ -239,7 +242,7 @@
             <div name="feats">
                 <p class="faq-title" data-name="{{feat.title}}">{{feat.title}}<span
                         class="remove features">&times;</span></p>
-                <div class="faq-content">
+                <div class="faq-content" style = "white-space: pre-wrap;">
                     {{feat.desc}}
                 </div>
             </div>
@@ -262,7 +265,7 @@
             <div name="otherFeats">
                 <p class="faq-title" data-name="{{feat.title}}">{{feat.title}} <span
                         class="remove features">&times;</span></p>
-                <div class="faq-content">
+                <div class="faq-content" style = "white-space: pre-wrap;">
                     {{feat.desc}}
                 </div>
             </div>

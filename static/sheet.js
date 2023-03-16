@@ -6,30 +6,6 @@ function run() {
     document.querySelector('ul.tab-container').querySelector(`li.${current_active_tab}`).classList.add("active");
     document.querySelector(`.tab-content[data-tab=${current_active_tab}]`).classList.add("active");
 
-    // for (let tab of tabs) {
-    //     if(past_tab !== "" && tab.classList.contains(past_tab)){
-    //         tabs.forEach(t => t.classList.remove("active"))
-    //         tab.classList.add("active")
-
-    //         for (let content of tab_contents) {
-    //             content.classList.remove("active")
-
-    //             if (tab.classList.contains(content.dataset.tab)) {
-    //                 content.classList.add("active")
-    //             }
-
-    //         }
-    //     }
-    //     else{
-    //         document.querySelector("li.overview").classList.add("active")
-    //         document.querySelector("div[data-tab = overview]").classList.add("active")
-    //     }
-    // }
-
-
-
-    const inputs = document.querySelectorAll("input")
-    const selectors = document.querySelectorAll("select")
     const rollHdie = document.querySelector("#roll-hit-die")
     const roll = document.querySelector("#roll")
     const faq_contents = document.querySelectorAll(".faq-content")
@@ -55,6 +31,10 @@ function run() {
     const add_custom_spell = document.querySelectorAll(".make-spell")
     
     const add_custom_item = document.querySelectorAll(".make-item")
+
+    const picture_input = document.querySelector("#upload-image")
+
+    picture_input.addEventListener("change", submit)
 
     add_to_item_list.forEach(element => {
         element.addEventListener("click", e => {
@@ -224,14 +204,15 @@ function run() {
         tab.addEventListener("click", e => {
 
             tabs.forEach(t => t.classList.remove("active"))
-            tab.classList.add("active")
+            // tab.classList.add("active")
 
             for (let content of tab_contents) {
                 content.classList.remove("active")
 
                 if (e.target.classList.contains(content.dataset.tab)) {
-                    content.classList.add("active")
+                    // content.classList.add("active")
                     document.querySelector("input[name = current-tab]").value = content.dataset.tab
+                    submit()
                 }
 
             }
@@ -248,20 +229,6 @@ function run() {
         form.requestSubmit()
     }
 
-    for (let input of inputs) {
-        if (input.type === "checkbox") {
-            input.addEventListener("change", submit)
-            continue
-        }
-        // if (!input.classList.contains("addFeat") && !input.classList.contains("submit-not")) {
-        //     input.addEventListener("focusout", submit)
-        // }
-
-    }
-
-    for (let selector of selectors) {
-        selector.addEventListener("change", submit)
-    }
 
 
 }
