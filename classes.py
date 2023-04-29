@@ -115,92 +115,110 @@ class Character:
             "acrobatics":{
                 "hasSkill":0,
                 "label":"acrobatics",
-                "modifier":0
+                "modifier":0,
+                "from":"dex"
             },
             "animalHandling":{
                 "hasSkill":0,
                 "label":"animal handling",
-                "modifier":0
+                "modifier":0,
+                "from":"wis"
             },
             "arcana":{
                 "hasSkill":0,
                 "label":"arcana",
-                "modifier":0
+                "modifier":0,
+                "from":"int"
             },
             "athletics":{
                 "hasSkill":0,
                 "label":"athletics",
-                "modifier":0
+                "modifier":0,
+                "from":"str"
             },
             "deception":{
                 "hasSkill":0,
                 "label":"deception",
-                "modifier":0
+                "modifier":0,
+                "from":"cha"
             },
             "history":{
                 "hasSkill":0,
                 "label":"history",
-                "modifier":0
+                "modifier":0,
+                "from":"int"
             },
             "insight":{
                 "hasSkill":0,
                 "label":"insight",
-                "modifier":0
+                "modifier":0,
+                "from":"wis"
             },
             "intimidation":{
                 "hasSkill":0,
                 "label":"intimidation",
-                "modifier":0
+                "modifier":0,
+                "from":"cha"
             },
             "investigation":{
                 "hasSkill":0,
                 "label":"investigation",
-                "modifier":0
+                "modifier":0,
+                "from":"int"
             },
             "medicine":{
                 "hasSkill":0,
                 "label":"medicine",
-                "modifier":0
+                "modifier":0,
+                "from":"wis"
             },
             "nature":{
                 "hasSkill":0,
                 "label":"nature",
-                "modifier":0
+                "modifier":0,
+                "from":"int"
             },
             "perception":{
                 "hasSkill":0,
                 "label":"perception",
-                "modifier":0
+                "modifier":0,
+                "from":"wis"
             },
             "performance":{
                 "hasSkill":0,
                 "label":"performance",
-                "modifier":0
+                "modifier":0,
+                "from":"cha"
             },
             "persuasion":{
                 "hasSkill":0,
                 "label":"persuasion",
-                "modifier":0
+                "modifier":0,
+                "from":"cha"
             },
             "religion":{
                 "hasSkill":0,
                 "label":"religion",
-                "modifier":0
+                "modifier":0,
+                "from":"int"
             },
             "slightOfHand":{
                 "hasSkill":0,
                 "label":"slight of hand",
-                "modifier":0
+                "modifier":0,
+                "from":"dex"
             },
             "stealth":{
                 "hasSkill":0,
                 "label":"stealth",
-                "modifier":0
+                "modifier":0,
+                "from":"dex"
             },
             "survival":{
                 "hasSkill":0,
                 "label":"survival",
-                "modifier":0
+                "modifier":0,
+                "from":"wis"
             }
         } if existingChr == None else existingChr["skills"]
         self.biography = {
@@ -353,7 +371,7 @@ class Character:
 
     def calcSkillProf(self):
         for skill in self.skills:
-            self.skills[skill]["modifier"] = self.skills[skill]["hasSkill"] * math.ceil(1 + 1/4 * self.base["level"])
+            self.skills[skill]["modifier"] = self.skills[skill]["hasSkill"] * math.ceil(1 + 1/4 * self.base["level"]) + math.floor((self.ability[self.skills[skill]["from"]] - 10)/2)
 
 
 person = Character()

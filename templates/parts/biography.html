@@ -10,8 +10,9 @@
         {% for name in sheet.biography.appearance %}
         <div>
             <label for={{name}}>{{name}}:</label>
-            <input type="text" name={{name}} value="{{sheet.biography.appearance[name]}}">
+            <input type="text" name={{name}} value="{{sheet.biography.appearance[name]}}" style="width: 60%;">
         </div>
+        <hr style = "margin: 0;">
         {% endfor %}
     </div>
 

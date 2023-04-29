@@ -2,6 +2,7 @@
     {% for monies in sheet.inventory.money %}
     <label>{{monies}}</label>
     <input type="text" name={{monies}} value={{sheet.inventory.money[monies]}}>
+    <hr>
     {% endfor %}
 </div>
 

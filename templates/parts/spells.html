@@ -2,6 +2,7 @@
     {% for thing in sheet.spells.spellBase %}
     <label>{{thing}}</label>
     <input type="text" name={{thing}} value={{sheet.spells.spellBase[thing]}}>
+    <hr>
     {% endfor %}
 </div>
 

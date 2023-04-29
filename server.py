@@ -237,7 +237,7 @@ def sheet(character):
         sheet.base["speed"]["climbing"] = request.form["climbing"]
 
         sheet.base["ac"] = request.form["ac"]
-        sheet.base["passivePerception"] = 10 + sheet.ability["modifiers"]["wis"]["flat"]
+        sheet.base["passivePerception"] = 10 + sheet.skills["perception"]["modifier"]
         sheet.base["initiative"] = sheet.ability["modifiers"]["dex"]["flat"]
 
         sheet.base["deathSaves"]["failures"] = sum(["fail1" in request.form, "fail2" in request.form, "fail3" in request.form])
