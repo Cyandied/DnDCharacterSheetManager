@@ -1,5 +1,33 @@
 from func import d
 import math
+import random
+import funcIngredients
+
+class Area:
+    def __init__(self, name:str, size:int,existingArea = None) -> None:
+        self.name = name if existingArea == None else existingArea["name"]
+        self.size = size if existingArea == None else existingArea["size"]
+        self.ingredients = funcIngredients.genrate_items(size) if existingArea == None else existingArea["ingredients"]
+
+    def searchArea(self,minFind = 4, maxFind = 8,focus = None):
+        ingredients = self.ingredients["item_list"]
+        result = []
+        if focus:
+            randWeight = []
+            baseWeight = (1-0.70)/(len(ingredients)-1)
+            for item in ingredients:
+                if item["value"] != focus:
+                    randWeight.append(baseWeight)
+                    continue
+                randWeight.append(0.30)
+            for i in range(random.randint(minFind,maxFind)):
+                result.append(random.choices(ingredients, randWeight)[0])
+        
+        else:
+            for i in range(random.randint(minFind,maxFind)):
+                result.append(random.choices(ingredients)[0])
+        return result
+
 
 class Spell:
     def __init__(self):

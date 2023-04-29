@@ -15,6 +15,62 @@
     --Tbg:#FFFFFF80;
 }
 
+#compass {
+    position: absolute;
+    margin: 570px 12%;
+    z-index: 1000;
+}
+
+#compass > img {
+    height: 150px;
+    opacity: 0.6;
+}
+
+#mapform {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#map {
+    height: 750px;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: var(--black) solid 5px;
+    background-color: #25378a;
+}
+
+#new-marker {
+    display: flex;
+    flex-direction: row;
+    align-items: self-start;
+    gap: 5px;
+}
+
+.leaflet-container:hover {
+    cursor: crosshair;
+}
+
+.leaflet-popup-content {
+    text-align: justify;
+    white-space: pre-wrap;
+    color: var(--dark);
+}
+
+.leaflet-popup-content h2 {
+    margin: 0;
+    color: var(--black);
+    font-family: "cursive";
+    font-size: 25px;
+}
+
+.leaflet-popup-content hr {
+    width: 100%;
+    margin: 0 0 10px;
+    color: var(--accent);
+}
+
+
 input, textarea{
     border-radius: 5px;
 }
@@ -274,7 +330,15 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
-.saveButton {
+#mapform button,
+.leaflet-popup-content button {
+    font-size: 15px !important;
+    margin: 0 !important;
+}
+
+.saveButton,
+#mapform button,
+.leaflet-popup-content button {
     margin: 0 0 20px;
     background-color: var(--light);
     list-style: none;
@@ -284,7 +348,9 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
-.saveButton:hover {
+.saveButton:hover,
+#mapform button:hover,
+.leaflet-popup-content button:hover {
     cursor: pointer;
     background-color: var(--white);
     color: var(--accent);
@@ -521,11 +587,15 @@ input[name="temp"] {
 
 .faqs,
 .profsList {
-    max-height: 250px;
+    max-height: 200px;
     overflow-y: auto;
     overflow-x: visible;
     scrollbar-gutter: stable;
     padding: 0;
+}
+
+.faqs {
+    max-height: 300px;
 }
 
 .faqs button,

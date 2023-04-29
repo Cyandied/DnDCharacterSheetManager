@@ -2,9 +2,10 @@ import json
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from os import listdir, remove
 from os.path import isfile, join
-from classes import Character, Feature, Spell, Item
+from classes import Character, Feature, Spell, Item, Area
 from flask_login import LoginManager, UserMixin, login_user, login_required
 import uuid
+import func
 
 class User():
     def __init__(self, name, password, id = None) -> None:
@@ -31,6 +32,8 @@ class User():
 app = Flask(__name__, static_url_path="", static_folder="static", template_folder="templates")
 
 app.secret_key = "i/2r:='d8$V{[:gHm5x?#YBB-D-6)N"
+
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -103,6 +106,87 @@ def index():
         return redirect(url_for("sheet",character=name_of_json))
 
     return render_template("index.html", files = files)
+
+@app.route("/getMapMarkers", methods=["GET"])
+def getMapMarkers():
+    with open(f'static/mapStuff/markers.json', "r") as f:
+        map = json.loads(f.read())
+    return map
+
+@app.route("/getGeoJSON", methods=["GET"])
+def getGeoJSON():
+    with open(f'static/mapStuff/geojson.json', "r") as f:
+        geojson = json.loads(f.read())
+    return geojson
+
+@app.route("/getAreaItems", methods=["GET"])
+def getAreaItems():
+    with open(f'static/mapStuff/areas.json', "r") as f:
+        areas = json.loads(f.read())
+    relavantArea = Area("", 0,existingArea = areas[request.args.get("area")])
+    return relavantArea.searchArea(focus = request.args.get("focus"))
+
+@app.route("/map", methods=["GET", "POST"])   
+def map():
+
+    markerFiles = listdir("static/mapStuff/markerTypes")
+    markers = []
+    for marker in markerFiles:
+        name,_ = marker.split(".")
+        markers.append(name)
+
+
+    with open(f'static/mapStuff/markers.json', "r") as f:
+        map = json.loads(f.read())
+
+    if request.method == "POST":
+
+        with open(f'static/mapStuff/markers.json', "r") as f:
+            map = json.loads(f.read())
+        
+        ids = []
+        for marker in map:
+            ids.append(marker["id"])
+
+        if request.form["delete"]:
+            for marker in map:
+                if marker["id"] == int(request.form["id"]):
+                    map.remove(marker)
+
+        attributes = func.getAttributes(request.form["attribNames"], request.form["attribVals"])
+
+        if request.form["name"] and int(request.form["id"]) not in ids:
+            newMarker = {
+                "name":request.form["name"],
+                "description":request.form["desc"],
+                "attributes":{
+                    "names":attributes[0],
+                    "values":attributes[1]
+                },
+                "iconType":request.form["icon"],
+                "lat":request.form["lat"],
+                "lang":request.form["lang"],
+                "id":map[-1]["id"] + 1 if len(map)>0 else 1
+            }
+            map.append(newMarker)
+        if int(request.form["id"]) in ids:
+            for marker in map:
+                if marker["id"] == int(request.form["id"]):
+                    marker["name"]=request.form["name"]
+                    marker["description"]=request.form["desc"]
+                    marker["iconType"]=request.form["icon"]
+                    marker["lat"]=request.form["lat"]
+                    marker["lang"]=request.form["lang"]
+                    marker["attributes"] = {
+                    "names":attributes[0],
+                    "values":attributes[1]
+                    }
+
+    with open(f'static/mapStuff/markers.json', "w") as f:
+        f.write(json.dumps(map))
+
+    return render_template("map.html", mapInfo = map, markers = markers)
+
 
 @app.route("/sheet/<character>", methods=["POST","GET"])
 # @login_required

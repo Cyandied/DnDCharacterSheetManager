@@ -1,0 +1,31 @@
+{% extends "parts/base.html" %}
+
+{% block content %}
+
+<body>
+    <div id="compass"><img src="mapstuff/compassReal.svg"></div>
+    <div id = "map"></div>
+    <input type="text" name="clicked-area" class = "hidden">
+    <form method="post" id="mapform">
+        <h3>Add or edit marker</h3>
+        <div id="new-marker">
+            <input type="text" name="name" placeholder="name">
+            <textarea type="text" name="desc" cols="50" rows="3"></textarea>
+            <input type="text" name="lat" placeholder="latitude">
+            <input type="text" name="lang" placeholder="langitude">
+            <input type="text" name = "attribNames" placeholder="attribute name1,name2,...">
+            <input type="text" name = "attribVals" placeholder="attribute val1,val2,...">
+            <select name="icon">
+                {% for marker in markers %}
+                <option value={{marker}} {% if marker == "poiSafeRed" %} selected="selected" {% endif %}>{{marker}}</option>
+                {% endfor %}
+            </select>
+            <input type="text" name = "id" value = "-1" class = "hidden">
+            <button id = "add">Save</button>
+            <button class="hidden" id="delete" type="button">Delete</button>
+            <input type="text" name="delete" value="" class = "hidden">
+        </div>
+    </form>
+</body>
+<script src="/map.js"></script>
+{% endblock %}

@@ -36,6 +36,24 @@ def d(num:int, faces:int)-> int:
         res.append(random.randint(1,faces))
     return sum(res)
 
+def getAttributes(names, values):
+    namesList = names.split(",")
+    valuesList = values.split(",")
+    if " " in namesList:
+        namesList.remove(" ")
+    if " " in valuesList:
+        valuesList.remove(" ")
+    if names and values and len(namesList) == len(valuesList):
+        return namesList, valuesList
+    elif len(namesList) > len(valuesList):
+        for i in range(len(namesList)-len(valuesList)):
+            valuesList.append("missing value")
+        return namesList, valuesList
+    elif len(namesList) < len(valuesList):
+        for i in range(len(valuesList)-len(namesList)):
+            namesList.append("missing name")
+        return namesList, valuesList
+    return [],[]
 
 get = "SwordCoastAdventurersGuide/items-scag.xml"
 

@@ -1,0 +1,1418 @@
+{
+    "Sazlad": {
+        "name": "Sazlad",
+        "size": 30,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "tall marbled dancing alge",
+                    "value": "*2"
+                },
+                {
+                    "name": "spotted leaf",
+                    "value": "+2"
+                },
+                {
+                    "name": "shiny spotted horned lizard",
+                    "value": "*2"
+                },
+                {
+                    "name": "stubby sage snail",
+                    "value": "+3"
+                },
+                {
+                    "name": "short luminecent mold",
+                    "value": "*2"
+                },
+                {
+                    "name": "painted symmetrical moss",
+                    "value": "+5"
+                },
+                {
+                    "name": "stubby lizard-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "lavender blotched tipped lizard-venom",
+                    "value": "*2"
+                },
+                {
+                    "name": "banded snake-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "short murky winged lizard",
+                    "value": "+5"
+                },
+                {
+                    "name": "banded desert fish",
+                    "value": "+1"
+                },
+                {
+                    "name": "short azure snake-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "mushroom",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby violet dancing coral",
+                    "value": "+2"
+                },
+                {
+                    "name": "giant striped lureing lizard",
+                    "value": "+3"
+                },
+                {
+                    "name": "herb-root",
+                    "value": "+2"
+                },
+                {
+                    "name": "speckled desert snake",
+                    "value": "+3"
+                },
+                {
+                    "name": "lizard-venom",
+                    "value": "-1"
+                },
+                {
+                    "name": "marbled snail",
+                    "value": "+1"
+                },
+                {
+                    "name": "tiny gold spotted spicy crab",
+                    "value": "+1"
+                },
+                {
+                    "name": "stubby indigo fish-gland",
+                    "value": "*2"
+                },
+                {
+                    "name": "salmon striped lizard-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "tall flower",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall muted striped root",
+                    "value": "-1"
+                },
+                {
+                    "name": "stubby domed mold",
+                    "value": "*2"
+                },
+                {
+                    "name": "giant speckled leathery lizard-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "lilac herb",
+                    "value": "+2"
+                },
+                {
+                    "name": "shrunken domed moss",
+                    "value": "+2"
+                },
+                {
+                    "name": "tiny spiked mushroom",
+                    "value": "+3"
+                },
+                {
+                    "name": "muted banded swaying fish-gland",
+                    "value": "-2"
+                }
+            ]
+        }
+    },
+    "Iridian Coast": {
+        "name": "Iridian Coast",
+        "size": 30,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "murky spicy flower-stem",
+                    "value": "*2"
+                },
+                {
+                    "name": "tall desert moss",
+                    "value": "+2"
+                },
+                {
+                    "name": "painted flower-stem",
+                    "value": "-1"
+                },
+                {
+                    "name": "frog-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "short violet blotched mold",
+                    "value": "+3"
+                },
+                {
+                    "name": "white spiked moss",
+                    "value": "-1"
+                },
+                {
+                    "name": "shrunken beige banded snake",
+                    "value": "+3"
+                },
+                {
+                    "name": "brown blotched crab",
+                    "value": "+3"
+                },
+                {
+                    "name": "murky speckled winged lizard-venom",
+                    "value": "-1"
+                },
+                {
+                    "name": "short wood flower-stem",
+                    "value": "+3"
+                },
+                {
+                    "name": "marbled seasonal snail-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "azure marbled fish-gland",
+                    "value": "*2"
+                },
+                {
+                    "name": "azure banded dancing fish-gland",
+                    "value": "-2"
+                },
+                {
+                    "name": "domed lizard",
+                    "value": "+1"
+                },
+                {
+                    "name": "maroon crab",
+                    "value": "+1"
+                },
+                {
+                    "name": "tall lime fish-gland",
+                    "value": "-1"
+                },
+                {
+                    "name": "black poisonous fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "tiny beige striped leaf",
+                    "value": "^2"
+                },
+                {
+                    "name": "tiny maroon tree-bark",
+                    "value": "+2"
+                },
+                {
+                    "name": "purple flower-petal",
+                    "value": "+5"
+                },
+                {
+                    "name": "snake-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "giant water lizard",
+                    "value": "*2"
+                },
+                {
+                    "name": "short striped herb-root",
+                    "value": "+3"
+                },
+                {
+                    "name": "moth",
+                    "value": "*2"
+                },
+                {
+                    "name": "painted tentacled fish-roe",
+                    "value": "*2"
+                },
+                {
+                    "name": "fish-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "pink frog-mucus",
+                    "value": "+1"
+                },
+                {
+                    "name": "short dark banded leaf",
+                    "value": "^2"
+                },
+                {
+                    "name": "stubby speckled horned root",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby blotched snail",
+                    "value": "+2"
+                }
+            ]
+        }
+    },
+    "Noman Band": {
+        "name": "Noman Band",
+        "size": 30,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "maroon marbled flower-stem",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall lureing flower",
+                    "value": "-2"
+                },
+                {
+                    "name": "shrunken striped herb",
+                    "value": "+1"
+                },
+                {
+                    "name": "marbled wood tree-bark",
+                    "value": "+2"
+                },
+                {
+                    "name": "tiny marbled root",
+                    "value": "+3"
+                },
+                {
+                    "name": "yellow flower",
+                    "value": "+1"
+                },
+                {
+                    "name": "crab",
+                    "value": "-2"
+                },
+                {
+                    "name": "pink spotted tipped coral",
+                    "value": "-2"
+                },
+                {
+                    "name": "shrunken maroon striped desert lizard-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "blotched lureing lizard",
+                    "value": "+3"
+                },
+                {
+                    "name": "short speckled horned lizard",
+                    "value": "+1"
+                },
+                {
+                    "name": "lavender coral",
+                    "value": "-1"
+                },
+                {
+                    "name": "short striped mold",
+                    "value": "+1"
+                },
+                {
+                    "name": "yellow spicy flower-stem",
+                    "value": "+1"
+                },
+                {
+                    "name": "striped fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "shiny striped fish-gland",
+                    "value": "^2"
+                },
+                {
+                    "name": "lilac seasonal flower-petal",
+                    "value": "+1"
+                },
+                {
+                    "name": "red striped mushroom",
+                    "value": "-1"
+                },
+                {
+                    "name": "shrunken speckled crab",
+                    "value": "+2"
+                },
+                {
+                    "name": "rouge clam",
+                    "value": "*2"
+                },
+                {
+                    "name": "short fish",
+                    "value": "^2"
+                },
+                {
+                    "name": "giant mold",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall dark carnivorous hopper",
+                    "value": "+2"
+                },
+                {
+                    "name": "rouge mountain mushroom",
+                    "value": "+2"
+                },
+                {
+                    "name": "tiny brown speckled moss",
+                    "value": "*2"
+                },
+                {
+                    "name": "indigo domed flower-petal",
+                    "value": "+2"
+                },
+                {
+                    "name": "tiny light beetle",
+                    "value": "+3"
+                },
+                {
+                    "name": "tiny painted desert mushroom",
+                    "value": "+2"
+                },
+                {
+                    "name": "butter domed flower-petal",
+                    "value": "-2"
+                },
+                {
+                    "name": "short herb-root",
+                    "value": "+1"
+                }
+            ]
+        }
+    },
+    "East Toufold": {
+        "name": "East Toufold",
+        "size": 30,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "crab",
+                    "value": "+3"
+                },
+                {
+                    "name": "purple painted fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "shrunken speckled water hopper",
+                    "value": "+1"
+                },
+                {
+                    "name": "giant striped soft hopper",
+                    "value": "+2"
+                },
+                {
+                    "name": "black beetle",
+                    "value": "+1"
+                },
+                {
+                    "name": "indigo speckled tipped beetle-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby beige dwarf fish-gland",
+                    "value": "+5"
+                },
+                {
+                    "name": "tiny beetle",
+                    "value": "+5"
+                },
+                {
+                    "name": "tiny painted tipped lizard",
+                    "value": "+2"
+                },
+                {
+                    "name": "sage painted swaying snail-mucus",
+                    "value": "+1"
+                },
+                {
+                    "name": "hopper",
+                    "value": "+2"
+                },
+                {
+                    "name": "black spotted snake-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "mold",
+                    "value": "-2"
+                },
+                {
+                    "name": "shrunken butter snake",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall mountain hopper",
+                    "value": "+1"
+                },
+                {
+                    "name": "short banded root",
+                    "value": "+3"
+                },
+                {
+                    "name": "sage striped beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "stubby blue blotched fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "giant azure desert beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "violet desert fish-gland",
+                    "value": "-2"
+                },
+                {
+                    "name": "indigo flower",
+                    "value": "*2"
+                },
+                {
+                    "name": "azure banded lureing beetle-gland",
+                    "value": "+2"
+                },
+                {
+                    "name": "leathery snake",
+                    "value": "+3"
+                },
+                {
+                    "name": "shrunken tentacled snail-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "spotted dancing fish-gland",
+                    "value": "*2"
+                },
+                {
+                    "name": "black speckled moss",
+                    "value": "+2"
+                },
+                {
+                    "name": "muted desert hopper",
+                    "value": "+3"
+                },
+                {
+                    "name": "short lime blotched seasonal clam",
+                    "value": "+2"
+                },
+                {
+                    "name": "banded mountain fish-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "giant speckled venomous snake-venom",
+                    "value": "-1"
+                }
+            ]
+        }
+    },
+    "Mezuang": {
+        "name": "Mezuang",
+        "size": 30,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "painted clam",
+                    "value": "+3"
+                },
+                {
+                    "name": "shiny tentacled flower",
+                    "value": "-1"
+                },
+                {
+                    "name": "bronze fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "snake-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "violet carnivorous lizard-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "light blotched seasonal fish",
+                    "value": "-1"
+                },
+                {
+                    "name": "striped snake-venom",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall sage domed root",
+                    "value": "+3"
+                },
+                {
+                    "name": "short murky spotted fish-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall opalencent herb",
+                    "value": "+1"
+                },
+                {
+                    "name": "spotted alge",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall flower-stem",
+                    "value": "+1"
+                },
+                {
+                    "name": "short indigo snake-venom",
+                    "value": "*2"
+                },
+                {
+                    "name": "stubby blotched horned moss",
+                    "value": "+1"
+                },
+                {
+                    "name": "short lime painted spiral clam",
+                    "value": "+2"
+                },
+                {
+                    "name": "lizard",
+                    "value": "+1"
+                },
+                {
+                    "name": "dark banded moss",
+                    "value": "+1"
+                },
+                {
+                    "name": "shrunken murky speckled frog",
+                    "value": "+1"
+                },
+                {
+                    "name": "tiny silver snail",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall tipped herb",
+                    "value": "-2"
+                },
+                {
+                    "name": "tall herb",
+                    "value": "+5"
+                },
+                {
+                    "name": "dark winged snake",
+                    "value": "+2"
+                },
+                {
+                    "name": "stubby mold",
+                    "value": "+2"
+                },
+                {
+                    "name": "silver hopper",
+                    "value": "-1"
+                },
+                {
+                    "name": "shiny tentacled tree-bark",
+                    "value": "+2"
+                },
+                {
+                    "name": "shrunken blue painted mountain leaf",
+                    "value": "-1"
+                },
+                {
+                    "name": "tall butter striped alge",
+                    "value": "+1"
+                },
+                {
+                    "name": "stubby marbled crab",
+                    "value": "+2"
+                },
+                {
+                    "name": "speckled leaf",
+                    "value": "+1"
+                },
+                {
+                    "name": "luminecent spotted spicy tree-bark",
+                    "value": "+1"
+                }
+            ]
+        }
+    },
+    "Azurim": {
+        "name": "Azurim",
+        "size": 30,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "crab",
+                    "value": "+1"
+                },
+                {
+                    "name": "giant striped lizard",
+                    "value": "+2"
+                },
+                {
+                    "name": "giant beetle-gland",
+                    "value": "^2"
+                },
+                {
+                    "name": "tiny bright flower",
+                    "value": "*2"
+                },
+                {
+                    "name": "beetle",
+                    "value": "+3"
+                },
+                {
+                    "name": "herb",
+                    "value": "+3"
+                },
+                {
+                    "name": "banded spiral moss",
+                    "value": "+2"
+                },
+                {
+                    "name": "dark blotched beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "butter speckled beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "luminecent fish",
+                    "value": "+2"
+                },
+                {
+                    "name": "tiny howling flower",
+                    "value": "+5"
+                },
+                {
+                    "name": "tall butter arctic fish-roe",
+                    "value": "+3"
+                },
+                {
+                    "name": "tree lizard",
+                    "value": "-2"
+                },
+                {
+                    "name": "short spotted tree beetle-gland",
+                    "value": "+2"
+                },
+                {
+                    "name": "short banded beetle",
+                    "value": "+2"
+                },
+                {
+                    "name": "tall amorphous coral",
+                    "value": "*2"
+                },
+                {
+                    "name": "shrunken beige painted snake-venom",
+                    "value": "^2"
+                },
+                {
+                    "name": "tiny blotched seasonal snail-mucus",
+                    "value": "*2"
+                },
+                {
+                    "name": "stubby striped horned flower-petal",
+                    "value": "-1"
+                },
+                {
+                    "name": "blotched soft mushroom",
+                    "value": "+2"
+                },
+                {
+                    "name": "tall painted tipped lizard",
+                    "value": "^2"
+                },
+                {
+                    "name": "muted leaf",
+                    "value": "+3"
+                },
+                {
+                    "name": "giant indigo speckled amorphous mushroom",
+                    "value": "^2"
+                },
+                {
+                    "name": "stubby lilac speckled mold",
+                    "value": "+1"
+                },
+                {
+                    "name": "shrunken speckled snake-venom",
+                    "value": "-1"
+                },
+                {
+                    "name": "maroon snail-mucus",
+                    "value": "^2"
+                },
+                {
+                    "name": "speckled fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "tipped fish",
+                    "value": "*2"
+                },
+                {
+                    "name": "symmetrical herb-root",
+                    "value": "-2"
+                },
+                {
+                    "name": "spiral beetle-gland",
+                    "value": "*2"
+                }
+            ]
+        }
+    },
+    "Opal Moors": {
+        "name": "Opal Moors",
+        "size": 15,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "frog",
+                    "value": "+1"
+                },
+                {
+                    "name": "shrunken winged lizard",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby banded tentacled alge",
+                    "value": "+5"
+                },
+                {
+                    "name": "short beige spiral snake-venom",
+                    "value": "-2"
+                },
+                {
+                    "name": "black banded fish",
+                    "value": "*2"
+                },
+                {
+                    "name": "alge",
+                    "value": "+3"
+                },
+                {
+                    "name": "muted blotched soft mushroom",
+                    "value": "+5"
+                },
+                {
+                    "name": "shrunken venomous flower-petal",
+                    "value": "+5"
+                },
+                {
+                    "name": "stubby lizard-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "dark spicy mushroom",
+                    "value": "+1"
+                },
+                {
+                    "name": "short spotted moth",
+                    "value": "+3"
+                },
+                {
+                    "name": "giant speckled beetle-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "herb-root",
+                    "value": "^2"
+                },
+                {
+                    "name": "marbled tipped snail-mucus",
+                    "value": "+3"
+                },
+                {
+                    "name": "purple banded beetle-gland",
+                    "value": "+2"
+                }
+            ]
+        }
+    },
+    "Swamn": {
+        "name": "Swamn",
+        "size": 15,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "murky winged herb-root",
+                    "value": "+5"
+                },
+                {
+                    "name": "symmetrical flower-stem",
+                    "value": "+2"
+                },
+                {
+                    "name": "giant domed flower-stem",
+                    "value": "+3"
+                },
+                {
+                    "name": "blue marbled spiral clam",
+                    "value": "+1"
+                },
+                {
+                    "name": "stubby moth",
+                    "value": "+1"
+                },
+                {
+                    "name": "shrunken striped domed snake-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "tall striped winged lizard",
+                    "value": "+2"
+                },
+                {
+                    "name": "tall maroon wood beetle-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall blotched frog-mucus",
+                    "value": "+5"
+                },
+                {
+                    "name": "giant azure lizard-venom",
+                    "value": "*2"
+                },
+                {
+                    "name": "short blotched domed moth",
+                    "value": "-2"
+                },
+                {
+                    "name": "coral",
+                    "value": "+3"
+                },
+                {
+                    "name": "pink banded soft beetle",
+                    "value": "^2"
+                },
+                {
+                    "name": "short orange banded soft mold",
+                    "value": "-2"
+                },
+                {
+                    "name": "shrunken shiny spotted amorphous leaf",
+                    "value": "+1"
+                }
+            ]
+        }
+    },
+    "West Toufold": {
+        "name": "West Toufold",
+        "size": 15,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "tall blue blotched leathery crab",
+                    "value": "+3"
+                },
+                {
+                    "name": "luminecent spotted leaf",
+                    "value": "+2"
+                },
+                {
+                    "name": "moth",
+                    "value": "*2"
+                },
+                {
+                    "name": "sage painted herb-root",
+                    "value": "+3"
+                },
+                {
+                    "name": "giant luminecent arctic beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "tiny lilac beetle",
+                    "value": "-1"
+                },
+                {
+                    "name": "fish",
+                    "value": "*2"
+                },
+                {
+                    "name": "stubby spotted lizard-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "short dark poisonous coral",
+                    "value": "-2"
+                },
+                {
+                    "name": "giant beige leaf",
+                    "value": "+2"
+                },
+                {
+                    "name": "herb",
+                    "value": "+2"
+                },
+                {
+                    "name": "shrunken yellow blotched spiked snake-venom",
+                    "value": "-1"
+                },
+                {
+                    "name": "tiny swaying mushroom",
+                    "value": "^2"
+                },
+                {
+                    "name": "short violet poisonous fish",
+                    "value": "+3"
+                },
+                {
+                    "name": "shrunken spiked snake",
+                    "value": "+1"
+                }
+            ]
+        }
+    },
+    "Hurzuang": {
+        "name": "Hurzuang",
+        "size": 15,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "giant spotted dwarf root",
+                    "value": "+1"
+                },
+                {
+                    "name": "tall striped crab",
+                    "value": "+2"
+                },
+                {
+                    "name": "black spotted lizard",
+                    "value": "+2"
+                },
+                {
+                    "name": "silver spotted tree-bark",
+                    "value": "+2"
+                },
+                {
+                    "name": "giant winged coral",
+                    "value": "+2"
+                },
+                {
+                    "name": "beige speckled tree-bark",
+                    "value": "+2"
+                },
+                {
+                    "name": "lime striped clam",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby salmon moss",
+                    "value": "+1"
+                },
+                {
+                    "name": "tiny symmetrical fish-roe",
+                    "value": "+3"
+                },
+                {
+                    "name": "shrunken salmon swaying clam",
+                    "value": "+1"
+                },
+                {
+                    "name": "brown snail-mucus",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby marbled seasonal snail",
+                    "value": "+1"
+                },
+                {
+                    "name": "seasonal snail-mucus",
+                    "value": "*2"
+                },
+                {
+                    "name": "tall brown fish",
+                    "value": "+1"
+                },
+                {
+                    "name": "speckled lizard",
+                    "value": "-2"
+                }
+            ]
+        }
+    },
+    "Chane": {
+        "name": "Chane",
+        "size": 45,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "speckled swaying fish-roe",
+                    "value": "+2"
+                },
+                {
+                    "name": "green painted asymmetrical root",
+                    "value": "^2"
+                },
+                {
+                    "name": "bronze horned clam",
+                    "value": "+5"
+                },
+                {
+                    "name": "maroon frog-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "short dark marbled alge",
+                    "value": "+3"
+                },
+                {
+                    "name": "tiny beige swaying beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "sage mushroom",
+                    "value": "+2"
+                },
+                {
+                    "name": "azure domed clam",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall painted frog-mucus",
+                    "value": "^2"
+                },
+                {
+                    "name": "butter fish-gland",
+                    "value": "^2"
+                },
+                {
+                    "name": "alge",
+                    "value": "-1"
+                },
+                {
+                    "name": "giant moth",
+                    "value": "+1"
+                },
+                {
+                    "name": "striped beetle-gland",
+                    "value": "+2"
+                },
+                {
+                    "name": "marbled symmetrical hopper",
+                    "value": "-1"
+                },
+                {
+                    "name": "stubby green striped lizard-venom",
+                    "value": "+5"
+                },
+                {
+                    "name": "tall hopper",
+                    "value": "+5"
+                },
+                {
+                    "name": "shrunken herb-root",
+                    "value": "^2"
+                },
+                {
+                    "name": "tiny domed leaf",
+                    "value": "^2"
+                },
+                {
+                    "name": "lilac symmetrical snail-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "rouge beetle-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "tree beetle-gland",
+                    "value": "+2"
+                },
+                {
+                    "name": "purple speckled crab",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby blue striped hopper",
+                    "value": "-2"
+                },
+                {
+                    "name": "shrunken lime spotted lureing root",
+                    "value": "+2"
+                },
+                {
+                    "name": "shrunken spiral flower-petal",
+                    "value": "+3"
+                },
+                {
+                    "name": "beetle-gland",
+                    "value": "+3"
+                },
+                {
+                    "name": "banded mountain beetle-gland",
+                    "value": "+1"
+                },
+                {
+                    "name": "tiny yellow striped lizard",
+                    "value": "-1"
+                },
+                {
+                    "name": "painted venomous mushroom",
+                    "value": "+3"
+                },
+                {
+                    "name": "shrunken brown carnivorous alge",
+                    "value": "+3"
+                },
+                {
+                    "name": "stubby maroon coral",
+                    "value": "+1"
+                },
+                {
+                    "name": "short swaying tree-bark",
+                    "value": "+3"
+                },
+                {
+                    "name": "crab",
+                    "value": "+1"
+                },
+                {
+                    "name": "blotched wood coral",
+                    "value": "^2"
+                },
+                {
+                    "name": "short striped symmetrical flower-stem",
+                    "value": "-1"
+                },
+                {
+                    "name": "speckled fish-roe",
+                    "value": "*2"
+                },
+                {
+                    "name": "stubby sage tipped beetle",
+                    "value": "+1"
+                },
+                {
+                    "name": "shrunken yellow dancing beetle",
+                    "value": "+1"
+                },
+                {
+                    "name": "shrunken light beetle",
+                    "value": "+2"
+                },
+                {
+                    "name": "giant indigo herb-root",
+                    "value": "+3"
+                },
+                {
+                    "name": "speckled flower-stem",
+                    "value": "+3"
+                },
+                {
+                    "name": "dwarf crab",
+                    "value": "*2"
+                },
+                {
+                    "name": "sage lizard-venom",
+                    "value": "+1"
+                },
+                {
+                    "name": "giant spotted amorphous alge",
+                    "value": "^2"
+                },
+                {
+                    "name": "shrunken opalencent dancing alge",
+                    "value": "-2"
+                }
+            ]
+        }
+    },
+    "Spiralia": {
+        "name": "Spiralia",
+        "size": 45,
+        "ingredients": {
+            "item_list": [
+                {
+                    "name": "shrunken blue speckled snail-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "short fish-roe",
+                    "value": "+1"
+                },
+                {
+                    "name": "black painted frog-mucus",
+                    "value": "-1"
+                },
+                {
+                    "name": "tall tipped mushroom",
+                    "value": "^2"
+                },
+                {
+                    "name": "stubby lilac snail",
+                    "value": "+2"
+                },
+                {
+                    "name": "shrunken venomous frog",
+                    "value": "+1"
+                },
+                {
+                    "name": "salmon lizard-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "tiny azure speckled seasonal beetle",
+                    "value": "+2"
+                },
+                {
+                    "name": "tall green speckled symmetrical snake-venom",
+                    "value": "-2"
+                },
+                {
+                    "name": "stubby herb-root",
+                    "value": "+3"
+                },
+                {
+                    "name": "blue domed frog",
+                    "value": "+2"
+                },
+                {
+                    "name": "pink moth",
+                    "value": "-1"
+                },
+                {
+                    "name": "giant striped horned frog",
+                    "value": "+1"
+                },
+                {
+                    "name": "black banded symmetrical snail-mucus",
+                    "value": "^2"
+                },
+                {
+                    "name": "tiny striped snake-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "violet tipped frog",
+                    "value": "+1"
+                },
+                {
+                    "name": "short azure blotched frog-mucus",
+                    "value": "*2"
+                },
+                {
+                    "name": "bronze striped tentacled lizard",
+                    "value": "+3"
+                },
+                {
+                    "name": "salmon spotted tree-bark",
+                    "value": "+1"
+                },
+                {
+                    "name": "mountain lizard-venom",
+                    "value": "+3"
+                },
+                {
+                    "name": "seasonal leaf",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall poisonous fish",
+                    "value": "^2"
+                },
+                {
+                    "name": "stubby dark spotted tentacled frog-mucus",
+                    "value": "+2"
+                },
+                {
+                    "name": "dwarf frog-mucus",
+                    "value": "-2"
+                },
+                {
+                    "name": "stubby beige blotched swaying lizard-venom",
+                    "value": "+3"
+                },
+                {
+                    "name": "soft beetle",
+                    "value": "+5"
+                },
+                {
+                    "name": "tiny muted spotted snail",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall rouge snail",
+                    "value": "^2"
+                },
+                {
+                    "name": "tall spicy herb",
+                    "value": "*2"
+                },
+                {
+                    "name": "blue leaf",
+                    "value": "+5"
+                },
+                {
+                    "name": "violet blotched domed alge",
+                    "value": "+1"
+                },
+                {
+                    "name": "speckled domed herb-root",
+                    "value": "+3"
+                },
+                {
+                    "name": "tall painted domed frog-mucus",
+                    "value": "*2"
+                },
+                {
+                    "name": "opalencent banded alge",
+                    "value": "+3"
+                },
+                {
+                    "name": "shrunken beige coral",
+                    "value": "^2"
+                },
+                {
+                    "name": "banded winged hopper",
+                    "value": "-2"
+                },
+                {
+                    "name": "spotted domed beetle-gland",
+                    "value": "^2"
+                },
+                {
+                    "name": "shrunken marbled lizard-venom",
+                    "value": "+2"
+                },
+                {
+                    "name": "tall white crab",
+                    "value": "+2"
+                },
+                {
+                    "name": "light painted water flower",
+                    "value": "^2"
+                },
+                {
+                    "name": "shrunken butter spotted herb-root",
+                    "value": "+2"
+                },
+                {
+                    "name": "shrunken indigo blotched winged root",
+                    "value": "^2"
+                },
+                {
+                    "name": "stubby lureing snail-mucus",
+                    "value": "-1"
+                },
+                {
+                    "name": "giant murky marbled fish-roe",
+                    "value": "+3"
+                },
+                {
+                    "name": "spotted desert fish",
+                    "value": "+1"
+                }
+            ]
+        }
+    }
+}

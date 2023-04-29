@@ -204,15 +204,15 @@ function run() {
         tab.addEventListener("click", e => {
 
             tabs.forEach(t => t.classList.remove("active"))
-            // tab.classList.add("active")
+            tab.classList.add("active")
 
             for (let content of tab_contents) {
                 content.classList.remove("active")
 
                 if (e.target.classList.contains(content.dataset.tab)) {
-                    // content.classList.add("active")
+                    content.classList.add("active")
                     document.querySelector("input[name = current-tab]").value = content.dataset.tab
-                    submit()
+                    // submit()
                 }
 
             }
