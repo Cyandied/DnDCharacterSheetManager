@@ -22,5 +22,11 @@ class PC:
             "deathTurns":{
                 "currentTurn":0,
                 "turnsTillDeath":0
+            },
+            "speed":{
+                "land":0,
+                "swimming":0,
+                "flying":0,
+                "climbing":0
             }
         }

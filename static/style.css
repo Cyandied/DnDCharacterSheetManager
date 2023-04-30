@@ -200,7 +200,7 @@ a {
 
 .tab-content {
     display: none;
-    width: 85%;
+    width: 90%;
     margin: auto;
     margin-top: 20px;
 }
@@ -253,7 +253,7 @@ body {
 }
 
 #sheet form {
-    width: 75%;
+    width: 90%;
     background-color: var(--Tbg);
     margin: auto;
     padding: 50px;
@@ -475,7 +475,7 @@ input[name="Cname"] {
 }
 
 #combat-things {
-    width: 25%;
+    width: 20%;
 }
 
 #combat-things,
@@ -617,7 +617,7 @@ input[name="temp"] {
 }
 
 #features {
-    width: 25%;
+    width: 30%;
 }
 
 .faq-inner-title {
